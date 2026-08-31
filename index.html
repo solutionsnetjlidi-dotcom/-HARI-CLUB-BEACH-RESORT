@@ -4,83 +4,150 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hari Club Beach Resort — Djerba</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
-.navbar{position:fixed;top:0;width:100%;background:linear-gradient(135deg,#0077b6,#023e8a);color:#fff;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
-.logo span{color:#fcbf49}
+body{font-family:'Poppins',sans-serif;background:#f5f5f5;color:#333;line-height:1.6;overflow-x:hidden}
+
+/* ===== 3D SLIDESHOW BACKGROUND ===== */
+.slideshow-3d{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:-1;perspective:1000px;overflow:hidden;background:#000}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 2s ease-in-out,transform 6s ease-out;transform:scale(1.1) rotateY(5deg);background-size:cover;background-position:center}
+.slide.active{opacity:1;transform:scale(1) rotateY(0deg)}
+.slide::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,62,138,0.6),rgba(0,119,182,0.4),rgba(247,127,0,0.2));z-index:1}
+.slide::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(0,0,0,0.3) 100%);z-index:2}
+
+/* Effet de particules Djerba */
+.particles{position:absolute;inset:0;z-index:3;pointer-events:none}
+.particle{position:absolute;width:4px;height:4px;background:rgba(255,255,255,0.6);border-radius:50%;animation:float 15s infinite}
+@keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(50px)}}
+
+/* Effet vague Djerba */
+.wave-effect{position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,rgba(0,119,182,0.3),transparent);z-index:2;animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+/* Navbar */
+.navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);color:#333;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.1);transition:0.3s}
+.logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#023e8a}
+.logo span{color:#f77f00}
 .nav-links{display:flex;gap:1.5rem;align-items:center}
-.nav-links a{color:#fff;text-decoration:none;font-size:0.9rem;transition:0.3s}
-.nav-links a:hover{color:#fcbf49}
+.nav-links a{color:#333;text-decoration:none;font-size:0.9rem;font-weight:500;transition:0.3s;padding:0.5rem 1rem;border-radius:25px}
+.nav-links a:hover{background:#f77f00;color:#fff}
 .lang-flags{display:flex;gap:8px}
-.lang-flag{width:32px;height:22px;border:2px solid rgba(255,255,255,0.3);border-radius:4px;cursor:pointer;transition:0.3s;overflow:hidden;background:none;padding:0}
-.lang-flag:hover,.lang-flag.active{transform:scale(1.15);border-color:#fcbf49;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.lang-flag{width:32px;height:22px;border:2px solid rgba(0,0,0,0.2);border-radius:4px;cursor:pointer;transition:0.3s;overflow:hidden;background:none;padding:0}
+.lang-flag:hover,.lang-flag.active{transform:scale(1.15);border-color:#f77f00;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
 .lang-flag svg{width:100%;height:100%;display:block}
-.hero{background:linear-gradient(135deg,rgba(2,62,138,0.8),rgba(0,119,182,0.6)),url('images/beach1.jpg') center/cover;padding:8rem 2rem 4rem;text-align:center;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.hero-content{max-width:800px}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);padding:0.5rem 1.5rem;border-radius:50px;font-size:0.85rem;margin-bottom:1.5rem}
-.hero h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:1rem;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
-.hero .script{font-family:'Playfair Display',serif;font-style:italic;color:#fcbf49;font-size:2rem;display:block;margin-bottom:0.5rem}
-.hero p{font-size:1.1rem;margin-bottom:2rem;opacity:0.95}
-.hero-features{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
-.feature{background:rgba(255,255,255,0.15);padding:0.6rem 1.2rem;border-radius:50px;font-size:0.9rem;backdrop-filter:blur(10px)}
-.btn{display:inline-block;padding:1rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;margin:0.5rem;transition:0.3s}
-.btn-primary{background:#f77f00;color:#fff;box-shadow:0 4px 15px rgba(247,127,0,0.4)}
-.btn-primary:hover{background:#fcbf49;transform:translateY(-3px)}
-.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
-.btn-outline:hover{background:#fff;color:#0077b6;transform:translateY(-3px)}
-section{padding:4rem 2rem}
-.container{max-width:1200px;margin:0 auto}
-.section-title{text-align:center;margin-bottom:3rem}
-.section-title h2{font-family:'Playfair Display',serif;font-size:2.5rem;color:#023e8a;margin-bottom:0.5rem}
-.section-title p{color:#666;max-width:600px;margin:0 auto}
-.divider{width:60px;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);margin:1rem auto;border-radius:2px}
-.gallery{background:#1a1a2e;color:#fff}
-.gallery .section-title h2{color:#fff}
-.gallery-filters{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:2rem}
-.filter-btn{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:0.6rem 1.5rem;border-radius:50px;cursor:pointer;transition:0.3s;font-size:0.9rem}
-.filter-btn:hover,.filter-btn.active{background:#f77f00;border-color:#f77f00}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.gallery-item{position:relative;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;transition:0.3s;background:#2a2a4a}
-.gallery-item:hover{transform:scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:0.6s}
-.gallery-item:hover img{transform:scale(1.1)}
-.gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);padding:1.5rem;color:#fff;opacity:0;transition:0.3s}
-.gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-overlay .zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;backdrop-filter:blur(10px)}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:10000;display:none;align-items:center;justify-content:center}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90%;max-height:85vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-.lightbox-close{position:absolute;top:1.5rem;right:1.5rem;width:45px;height:45px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;cursor:pointer;transition:0.3s;border:none}
-.lightbox-close:hover{background:#f77f00;transform:rotate(90deg)}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;cursor:pointer;transition:0.3s;border:none}
-.lightbox-nav:hover{background:#f77f00}
-.lightbox-prev{left:1.5rem}
-.lightbox-next{right:1.5rem}
-.lightbox-counter{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);color:#fff;background:rgba(0,0,0,0.5);padding:0.4rem 1.2rem;border-radius:50px;font-size:0.9rem}
-.lightbox-thumbs{position:absolute;bottom:4rem;left:50%;transform:translateX(-50%);display:flex;gap:0.5rem;max-width:80vw;overflow-x:auto;padding:0.5rem}
-.thumb{width:60px;height:45px;border-radius:6px;overflow:hidden;cursor:pointer;opacity:0.5;transition:0.3s;border:2px solid transparent;flex-shrink:0}
-.thumb.active{opacity:1;border-color:#f77f00}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.fab{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:linear-gradient(135deg,#f77f00,#e36414);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 8px 25px rgba(247,127,0,0.4);cursor:pointer;transition:0.3s;border:none;z-index:999}
-.fab:hover{transform:scale(1.1)}
-footer{background:#1a1a2e;color:rgba(255,255,255,0.7);text-align:center;padding:2rem}
-footer a{color:#fcbf49}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:5px;cursor:pointer}
-.hamburger span{width:25px;height:3px;background:#fff;border-radius:3px;transition:0.3s}
+.hamburger span{width:25px;height:3px;background:#023e8a;border-radius:3px;transition:0.3s}
+
+/* Hero Section */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:8rem 2rem 4rem;position:relative}
+.hero-content{max-width:900px;text-align:center;color:#fff;z-index:10;animation:fadeInUp 1s ease-out}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);padding:0.6rem 1.5rem;border-radius:50px;font-size:0.85rem;margin-bottom:2rem;border:1px solid rgba(255,255,255,0.3)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem;text-shadow:3px 3px 6px rgba(0,0,0,0.4);line-height:1.2}
+.hero .script{font-family:'Dancing Script',cursive;color:#fcbf49;font-size:2.5rem;display:block;margin-bottom:0.5rem}
+.hero p{font-size:1.2rem;margin-bottom:2.5rem;opacity:0.95;text-shadow:1px 1px 3px rgba(0,0,0,0.3)}
+.hero-features{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.feature{background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);padding:0.7rem 1.3rem;border-radius:50px;font-size:0.95rem;border:1px solid rgba(255,255,255,0.2);transition:0.3s}
+.feature:hover{background:rgba(255,255,255,0.3);transform:translateY(-3px)}
+.btn{display:inline-block;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;margin:0.5rem;transition:0.3s;font-size:1rem}
+.btn-primary{background:#f77f00;color:#fff;box-shadow:0 6px 20px rgba(247,127,0,0.4)}
+.btn-primary:hover{background:#fcbf49;transform:translateY(-3px);box-shadow:0 10px 30px rgba(247,127,0,0.5)}
+.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
+.btn-outline:hover{background:#fff;color:#023e8a;transform:translateY(-3px)}
+
+/* Sections */
+section{padding:5rem 2rem;background:#fff}
+.container{max-width:1200px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3.5rem}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:#023e8a;margin-bottom:0.5rem}
+.section-title p{color:#666;max-width:600px;margin:0 auto;font-size:1.05rem}
+.divider{width:80px;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);margin:1rem auto;border-radius:2px}
+
+/* Gallery */
+.gallery{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;position:relative;overflow:hidden}
+.gallery::before{content:'';position:absolute;top:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,rgba(26,26,46,1),transparent);z-index:1}
+.gallery .section-title h2{color:#fff}
+.gallery .section-title p{color:rgba(255,255,255,0.8)}
+.gallery-filters{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:3rem;position:relative;z-index:10}
+.filter-btn{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:0.7rem 1.8rem;border-radius:50px;cursor:pointer;transition:0.3s;font-size:0.95rem;font-weight:500;backdrop-filter:blur(10px)}
+.filter-btn:hover,.filter-btn.active{background:#f77f00;border-color:#f77f00;transform:translateY(-2px);box-shadow:0 5px 15px rgba(247,127,0,0.3)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;position:relative;z-index:10}
+.gallery-item{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;transition:0.4s;background:#2a2a4a;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.gallery-item:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,0.4)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:0.6s}
+.gallery-item:hover img{transform:scale(1.15)}
+.gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);padding:2rem;color:#fff;opacity:0;transition:0.3s}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-overlay .zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(247,127,0,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
+.gallery-item:hover .gallery-overlay .zoom{transform:translate(-50%,-50%) scale(1.1)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.98);z-index:10000;display:none;align-items:center;justify-content:center}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90%;max-height:85vh;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.6);animation:lightboxIn 0.4s ease}
+@keyframes lightboxIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+.lightbox-close{position:absolute;top:2rem;right:2rem;width:50px;height:50px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;cursor:pointer;transition:0.3s;border:none;backdrop-filter:blur(10px)}
+.lightbox-close:hover{background:#f77f00;transform:rotate(90deg)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:60px;height:60px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;cursor:pointer;transition:0.3s;border:none;backdrop-filter:blur(10px)}
+.lightbox-nav:hover{background:#f77f00;transform:translateY(-50%) scale(1.1)}
+.lightbox-prev{left:2rem}
+.lightbox-next{right:2rem}
+.lightbox-counter{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:#fff;background:rgba(247,127,0,0.9);padding:0.5rem 1.5rem;border-radius:50px;font-size:0.95rem;font-weight:600}
+.lightbox-thumbs{position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);display:flex;gap:0.8rem;max-width:80vw;overflow-x:auto;padding:0.5rem}
+.thumb{width:80px;height:60px;border-radius:10px;overflow:hidden;cursor:pointer;opacity:0.5;transition:0.3s;border:3px solid transparent;flex-shrink:0}
+.thumb.active{opacity:1;border-color:#f77f00;transform:scale(1.1)}
+.thumb img{width:100%;height:100%;object-fit:cover}
+
+/* FAB */
+.fab{position:fixed;bottom:2rem;right:2rem;width:65px;height:65px;background:linear-gradient(135deg,#f77f00,#e36414);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;box-shadow:0 8px 25px rgba(247,127,0,0.4);cursor:pointer;transition:0.3s;border:none;z-index:999;animation:pulse 2s infinite}
+.fab:hover{transform:scale(1.1);box-shadow:0 12px 35px rgba(247,127,0,0.5)}
+@keyframes pulse{0%,100%{box-shadow:0 8px 25px rgba(247,127,0,0.4)}50%{box-shadow:0 8px 25px rgba(247,127,0,0.4),0 0 0 15px rgba(247,127,0,0.1)}}
+
+/* Footer */
+footer{background:#0a0a1a;color:rgba(255,255,255,0.7);text-align:center;padding:3rem 2rem}
+footer a{color:#fcbf49}
+
+/* Responsive */
 @media(max-width:768px){
-.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#023e8a;flex-direction:column;padding:1rem;gap:1rem}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;gap:1rem;box-shadow:0 5px 20px rgba(0,0,0,0.1)}
 .nav-links.active{display:flex}
 .hamburger{display:flex}
 .hero h1{font-size:2rem}
 .gallery-grid{grid-template-columns:1fr}
+.lightbox-nav{width:45px;height:45px;font-size:1.5rem}
+.lightbox-prev{left:1rem}
+.lightbox-next{right:1rem}
 }
 </style>
 </head>
 <body>
 
+<!-- 3D SLIDESHOW BACKGROUND -->
+<div class="slideshow-3d" id="slideshow">
+  <div class="slide active" style="background-image:url('images/beach1.jpg')">
+    <div class="particles" id="particles1"></div>
+    <div class="wave-effect"></div>
+  </div>
+  <div class="slide" style="background-image:url('images/beach2.jpg')">
+    <div class="particles" id="particles2"></div>
+    <div class="wave-effect"></div>
+  </div>
+  <div class="slide" style="background-image:url('images/beach3.jpg')">
+    <div class="particles" id="particles3"></div>
+    <div class="wave-effect"></div>
+  </div>
+  <div class="slide" style="background-image:url('images/beach4.jpg')">
+    <div class="particles" id="particles4"></div>
+    <div class="wave-effect"></div>
+  </div>
+  <div class="slide" style="background-image:url('images/beach5.jpg')">
+    <div class="particles" id="particles5"></div>
+    <div class="wave-effect"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo">Hari <span>Club</span></div>
   <div class="nav-links" id="navLinks">
@@ -105,6 +172,7 @@ footer a{color:#fcbf49}
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge" data-i18n="hero_badge">OUVERT 24/24 · TOUTE L'ANNÉE</div>
@@ -119,12 +187,13 @@ footer a{color:#fcbf49}
       <div class="feature">🛏️ <span data-i18n="hero_rooms">212 chambres</span></div>
     </div>
     <div>
-      <a href="#galerie" class="btn btn-primary" data-i18n="hero_gallery">🖼️ Visite virtuelle</a>
+      <a href="#galerie" class="btn btn-primary" data-i18n="hero_gallery">️ Visite virtuelle</a>
       <a href="#restaurants" class="btn btn-outline" data-i18n="hero_guide">📖 Guide complet</a>
     </div>
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="galerie" class="gallery">
   <div class="container">
     <div class="section-title">
@@ -156,7 +225,7 @@ footer a{color:#fcbf49}
       <div class="gallery-item" data-category="beach" data-src="images/beach3.jpg">
         <img src="images/beach3.jpg" alt="Plage" loading="lazy">
         <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
+          <div class="zoom"></div>
           <span data-i18n="img3">Vue panoramique</span>
         </div>
       </div>
@@ -167,17 +236,25 @@ footer a{color:#fcbf49}
           <span data-i18n="img4">Palmier & transats</span>
         </div>
       </div>
+      <div class="gallery-item" data-category="beach" data-src="images/beach5.jpg">
+        <img src="images/beach5.jpg" alt="Plage" loading="lazy">
+        <div class="gallery-overlay">
+          <div class="zoom">🔍</div>
+          <span data-i18n="img5">Bord de mer</span>
+        </div>
+      </div>
       <div class="gallery-item" data-category="kids" data-src="images/miniclub.jpg">
         <img src="images/miniclub.jpg" alt="Mini Club" loading="lazy">
         <div class="gallery-overlay">
-          <div class="zoom"></div>
-          <span data-i18n="img5">Mini Club</span>
+          <div class="zoom">🔍</div>
+          <span data-i18n="img6">Mini Club</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose">✕</button>
   <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
@@ -187,21 +264,25 @@ footer a{color:#fcbf49}
   <div class="lightbox-thumbs" id="lightboxThumbs"></div>
 </div>
 
+<!-- FAB -->
 <button class="fab" id="fabGallery" title="Galerie">️</button>
 
+<!-- FOOTER -->
 <footer>
-  <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:0.5rem">Hari Club Beach Resort ★★★★</div>
-  <p data-i18n="footer_credit">Guide numérique conçu par OmarSoft</p>
+  <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:0.5rem">Hari Club Beach Resort ★★★★</div>
+  <p data-i18n="footer_credit">Guide numérique conçu par OmarSoft pour Hari Club Beach Resort</p>
   <p>© 2026 · <a href="https://www.hari-club.com">hari-club.com</a></p>
 </footer>
 
 <script>
+// Translations
 const translations={
-fr:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activités",nav_wellness:"Bien-être",nav_gallery:"Galerie",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_welcome:"Bienvenue au",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres",hero_gallery:"🖼️ Visite virtuelle",hero_guide:"📖 Guide complet",gal_title:"Galerie Photos",gal_subtitle:"Faites votre visite virtuelle du Hari Club Beach Resort.",gal_all:"Tout",gal_beach:"🏖️ Plage",gal_bars:"🍹 Bars",gal_kids:"🎈 Enfants",img1:"Plage & cocotiers",img2:"Parasols & mer turquoise",img3:"Vue panoramique",img4:"Palmier & transats",img5:"Mini Club",footer_credit:"Guide numérique conçu par OmarSoft"},
-en:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activities",nav_wellness:"Wellness",nav_gallery:"Gallery",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_welcome:"Welcome to",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms",hero_gallery:"🖼️ Virtual tour",hero_guide:"📖 Full guide",gal_title:"Photo Gallery",gal_subtitle:"Take your virtual tour of Hari Club Beach Resort.",gal_all:"All",gal_beach:"🏖️ Beach",gal_bars:"🍹 Bars",gal_kids:"🎈 Kids",img1:"Beach & palms",img2:"Parasols & turquoise sea",img3:"Panoramic view",img4:"Palm tree & loungers",img5:"Kids Club",footer_credit:"Digital guide by OmarSoft"},
-de:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Aktivitäten",nav_wellness:"Wellness",nav_gallery:"Galerie",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_welcome:"Willkommen im",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Guide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer",hero_gallery:"️ Virtueller Rundgang",hero_guide:"📖 Vollständiger Guide",gal_title:"Fotogalerie",gal_subtitle:"Machen Sie Ihren virtuellen Rundgang.",gal_all:"Alle",gal_beach:"🏖️ Strand",gal_bars:"🍹 Bars",gal_kids:"🎈 Kinder",img1:"Strand & Palmen",img2:"Sonnenschirme & türkis Meer",img3:"Panoramablick",img4:"Palme & Liegen",img5:"Kids Club",footer_credit:"Digitaler Guide von OmarSoft"}
+fr:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activités",nav_wellness:"Bien-être",nav_gallery:"Galerie",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_welcome:"Bienvenue au",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres",hero_gallery:"🖼️ Visite virtuelle",hero_guide:"📖 Guide complet",gal_title:"Galerie Photos",gal_subtitle:"Faites votre visite virtuelle du Hari Club Beach Resort.",gal_all:"Tout",gal_beach:"🏖️ Plage",gal_bars:" Bars",gal_kids:"🎈 Enfants",img1:"Plage & cocotiers",img2:"Parasols & mer turquoise",img3:"Vue panoramique",img4:"Palmier & transats",img5:"Bord de mer",img6:"Mini Club",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort"},
+en:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activities",nav_wellness:"Wellness",nav_gallery:"Gallery",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_welcome:"Welcome to",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms",hero_gallery:"🖼️ Virtual tour",hero_guide:"📖 Full guide",gal_title:"Photo Gallery",gal_subtitle:"Take your virtual tour of Hari Club Beach Resort.",gal_all:"All",gal_beach:"🏖️ Beach",gal_bars:"🍹 Bars",gal_kids:"🎈 Kids",img1:"Beach & palms",img2:"Parasols & turquoise sea",img3:"Panoramic view",img4:"Palm tree & loungers",img5:"Seaside",img6:"Kids Club",footer_credit:"Digital guide by OmarSoft"},
+de:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Aktivitäten",nav_wellness:"Wellness",nav_gallery:"Galerie",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_welcome:"Willkommen im",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Guide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer",hero_gallery:"️ Virtueller Rundgang",hero_guide:" Vollständiger Guide",gal_title:"Fotogalerie",gal_subtitle:"Machen Sie Ihren virtuellen Rundgang.",gal_all:"Alle",gal_beach:"🏖️ Strand",gal_bars:" Bars",gal_kids:"🎈 Kinder",img1:"Strand & Palmen",img2:"Sonnenschirme & türkis Meer",img3:"Panoramablick",img4:"Palme & Liegen",img5:"Meeresnähe",img6:"Kids Club",footer_credit:"Digitaler Guide von OmarSoft"}
 };
 
+// Language
 let currentLang='fr';
 const detectLang=()=>{const l=navigator.language.split('-')[0];return(['en','de'].includes(l))?l:'fr';};
 const setLanguage=(lang)=>{
@@ -216,8 +297,36 @@ localStorage.setItem('hari_lang',lang);
 setLanguage(localStorage.getItem('hari_lang')||detectLang());
 document.querySelectorAll('.lang-flag').forEach(f=>f.addEventListener('click',()=>setLanguage(f.dataset.lang)));
 
+// Hamburger
 document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('active'));
 
+// 3D Slideshow
+const slides=document.querySelectorAll('.slide');
+let currentSlide=0;
+const nextSlide=()=>{
+slides[currentSlide].classList.remove('active');
+currentSlide=(currentSlide+1)%slides.length;
+slides[currentSlide].classList.add('active');
+};
+setInterval(nextSlide,6000);
+
+// Create particles
+for(let i=1;i<=5;i++){
+const container=document.getElementById(`particles${i}`);
+if(container){
+for(let j=0;j<20;j++){
+const particle=document.createElement('div');
+particle.className='particle';
+particle.style.left=Math.random()*100+'%';
+particle.style.top=Math.random()*100+'%';
+particle.style.animationDelay=Math.random()*15+'s';
+particle.style.animationDuration=(10+Math.random()*10)+'s';
+container.appendChild(particle);
+}
+}
+}
+
+// Gallery
 const galleryItems=Array.from(document.querySelectorAll('.gallery-item'));
 const filterBtns=document.querySelectorAll('.filter-btn');
 filterBtns.forEach(btn=>{
@@ -232,6 +341,7 @@ else{item.style.opacity='0';item.style.transform='scale(0.8)';setTimeout(()=>ite
 });
 });
 
+// Lightbox
 const lightbox=document.getElementById('lightbox');
 const lightboxImg=document.getElementById('lightboxImg');
 const lightboxCounter=document.getElementById('lightboxCounter');
@@ -275,6 +385,13 @@ if(e.key==='ArrowLeft')prevImg();
 });
 
 document.getElementById('fabGallery').addEventListener('click',()=>document.getElementById('galerie').scrollIntoView({behavior:'smooth'}));
+
+// Navbar scroll effect
+window.addEventListener('scroll',()=>{
+const navbar=document.querySelector('.navbar');
+if(window.scrollY>100){navbar.style.background='rgba(255,255,255,0.98)';navbar.style.boxShadow='0 2px 20px rgba(0,0,0,0.1)';}
+else{navbar.style.background='rgba(255,255,255,0.95)';navbar.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)';}
+});
 </script>
 
 </body>
