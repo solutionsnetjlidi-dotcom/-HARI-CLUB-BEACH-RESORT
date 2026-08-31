@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Club Beach Resort — Guide du séjour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea-deep:#0B3B52;
+    --sea:#1789B3;
+    --sea-light:#5FB8D6;
+    --sand:#F6EFE3;
+    --sand-deep:#EDE1CC;
+    --palm:#3F7A4C;
+    --sun:#E2822F;
+    --ink:#132A33;
+    --ink-soft:#4A5F66;
+    --white:#FFFDF9;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans',sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;color:var(--sea-deep);}
+  a{color:inherit;}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(165deg,var(--sea-deep) 0%,var(--sea) 65%,var(--sea-light) 100%);
+    color:var(--white);
+    padding:36px 22px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-40px;bottom:-60px;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero-eyebrow{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:.04em;color:var(--sun);
+    font-weight:600;margin-bottom:10px;
+  }
+  .hero-eyebrow svg{width:16px;height:16px;flex:none;}
+  .hero h1{
+    font-size:clamp(28px,7vw,40px);
+    font-weight:700;
+    line-height:1.05;
+    color:var(--white);
+  }
+  .hero p.tag{
+    margin-top:8px;
+    font-size:15px;
+    color:rgba(255,253,249,.85);
+    max-width:34ch;
+  }
+  .hero .stars{color:var(--sun);letter-spacing:2px;font-size:14px;margin-top:10px;}
+  .hero-badges{
+    display:flex;flex-wrap:wrap;gap:8px;
+    margin-top:20px;
+    position:relative;z-index:1;
+  }
+  .badge{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.28);
+    backdrop-filter:blur(2px);
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:500;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  /* Sticky nav */
+  nav.tabs{
+    position:sticky;top:0;z-index:20;
+    background:var(--sand);
+    border-bottom:1px solid var(--sand-deep);
+    display:flex;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  nav.tabs::-webkit-scrollbar{display:none;}
+  nav.tabs a{
+    flex:none;
+    padding:14px 16px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+    text-decoration:none;
+    white-space:nowrap;
+    border-bottom:3px solid transparent;
+  }
+  nav.tabs a:active,nav.tabs a:hover{color:var(--sea-deep);border-bottom-color:var(--sun);}
+
+  main{max-width:640px;margin:0 auto;padding:0 18px;}
+  section{padding:34px 0 6px;}
+  section h2{
+    font-size:24px;
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:4px;
+  }
+  section h2 .icon{font-size:22px;}
+  .section-sub{color:var(--ink-soft);font-size:14px;margin-bottom:18px;}
+
+  .card{
+    background:var(--white);
+    border:1px solid var(--sand-deep);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    margin-bottom:12px;
+  }
+  .card h3{font-size:16.5px;font-weight:600;margin-bottom:3px;display:flex;justify-content:space-between;gap:10px;align-items:baseline;}
+  .card .hours{
+    font-size:12.5px;font-weight:600;color:var(--sea);
+    white-space:nowrap;
+  }
+  .card p{font-size:14px;color:var(--ink-soft);}
+  .card .days{font-size:12px;color:var(--palm);font-weight:600;margin-top:6px;}
+  .card .extra{
+    margin-top:8px;
+    font-size:12.5px;
+    color:var(--sun);
+    font-weight:600;
+  }
+
+  details.card{padding:0;}
+  details.card summary{
+    list-style:none;
+    cursor:pointer;
+    padding:16px 18px;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  details.card summary::-webkit-details-marker{display:none;}
+  details.card summary h3{margin:0;}
+  details.card summary .chev{
+    font-size:13px;color:var(--sea);flex:none;transition:transform .2s;
+  }
+  details.card[open] summary .chev{transform:rotate(180deg);}
+  details.card .body{padding:0 18px 16px;font-size:14px;color:var(--ink-soft);}
+  details.card .body ul{padding-left:18px;margin-top:6px;}
+  details.card .body li{margin-bottom:4px;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:420px){.grid2{grid-template-columns:1fr;}}
+
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .pill{
+    background:var(--sand-deep);
+    color:var(--sea-deep);
+    font-size:12.5px;font-weight:600;
+    padding:5px 10px;border-radius:999px;
+  }
+
+  .note{
+    background:#FCF3E6;
+    border:1px solid #F0DCB8;
+    border-radius:var(--radius);
+    padding:14px 16px;
+    font-size:13.5px;
+    color:#6B4E1E;
+    margin:14px 0;
+  }
+  .note b{color:#5B3C0F;}
+
+  .divider{height:1px;background:var(--sand-deep);margin:30px 0 0;}
+
+  footer{
+    max-width:640px;margin:40px auto 0;padding:24px 18px 10px;
+    text-align:center;color:var(--ink-soft);font-size:12.5px;
+  }
+  footer .brand{font-weight:700;color:var(--sea-deep);}
+  footer a.site{color:var(--sea);font-weight:600;text-decoration:none;}
+
+  .contact-card{
+    background:var(--sea-deep);color:var(--white);
+    border-radius:var(--radius);
+    padding:20px 20px 22px;
+  }
+  .contact-card h3{color:var(--white);font-size:17px;margin-bottom:10px;}
+  .contact-card .row{display:flex;gap:10px;font-size:13.5px;margin-bottom:8px;color:rgba(255,253,249,.9);}
+  .contact-card .row span.k{opacity:.65;min-width:70px;flex:none;}
+
+  .proto-flag{
+    position:fixed;left:0;right:0;bottom:0;
+    background:var(--sun);color:#fff;
+    font-size:11.5px;font-weight:600;
+    text-align:center;padding:6px 10px;
+    letter-spacing:.02em;
+    z-index:30;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    OUVERT 24/24 · TOUTE L'ANNÉE
+  </div>
+  <h1>Hari Club<br>Beach Resort</h1>
+  <div class="stars">★★★★</div>
+  <p class="tag">Bienvenue ! Voici votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.</p>
+  <div class="hero-badges">
+    <span class="badge">📶 Wi-Fi gratuit — tout l'hôtel</span>
+    <span class="badge">🏖️ Plage privée 400 m</span>
+    <span class="badge">🛏️ 212 chambres & suites</span>
+  </div>
+</div>
+
+<nav class="tabs">
+  <a href="#restaurants">🍽️ Restaurants</a>
+  <a href="#bars">🍹 Bars</a>
+  <a href="#activites">🎾 Activités</a>
+  <a href="#bienetre">💆 Bien-être</a>
+  <a href="#pratique">ℹ️ Infos pratiques</a>
+  <a href="#contact">📍 Contact</a>
+</nav>
+
+<main>
+
+  <section id="restaurants">
+    <h2><span class="icon">🍽️</span>Restaurants</h2>
+    <p class="section-sub">Tous les repas et snacks sont inclus dans votre formule Ultra All Inclusive, sauf mention contraire.</p>
+
+    <div class="card">
+      <h3>Petit-déjeuner <span class="hours">06:00 – 10:00</span></h3>
+      <p>Buffet au restaurant principal (salle climatisée + terrasse pergola), show cooking dès 8h.</p>
+      <p style="margin-top:6px">Petit-déjeuner tardif : Lobby Bar, 10:00–11:00 · Petit-déjeuner matinal (départs anticipés, sur demande) : 05:00–06:00</p>
+      <div class="days">Tous les jours, toute l'année</div>
+    </div>
+
+    <div class="card">
+      <h3>Déjeuner « Le Gourmet » <span class="hours">12:30 – 14:00 / 14:30</span></h3>
+      <p>Buffet au restaurant principal, salle climatisée + terrasse piscine. Boissons fraîches, bières et vins tunisiens locaux inclus.</p>
+      <div class="days">12:30–14:00 en hiver (nov–avr) · 12:30–14:30 en été (mai–oct) · 7j/7</div>
+    </div>
+
+    <details class="card">
+      <summary><h3>Dîner « Le Gourmet »</h3><span class="chev">▾</span></summary>
+      <div class="body">
+        <p>Buffet au restaurant principal, 3 soirées à thème par semaine :</p>
+        <ul>
+          <li><b>Lundi</b> — Italien</li>
+          <li><b>Mercredi</b> — Oriental</li>
+          <li><b>Vendredi</b> — Méditerranéen</li>
+          <li><b>Samedi</b> — International</li>
+        </ul>
+        <p style="margin-top:8px">18:30–21:00 en hiver (nov–avr) · 19:00–21:30 en été (mai–oct) · 7j/7</p>
+        <p style="margin-top:6px">Tenue correcte exigée : pantalon long pour les messieurs au dîner.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><h3>Le Coco de Mer — Restaurant de plage</h3><span class="chev">▾</span></summary>
+      <div class="body">
+        <p>Pergola en bord de plage, ouvert de mi-mai à octobre, 19:00–21:30, 3 à 4 soirs/semaine. Menus servis à table ou en buffet, en rotation :</p>
+        <ul>
+          <li>Menu 1 — Cuisine tunisienne & orientale</li>
+          <li>Menu 2 — Cuisine méditerranéenne</li>
+          <li>Menu 3 — Cuisine italienne</li>
+          <li>Menu 4 — Menu du pêcheur (poisson)</li>
+        </ul>
+        <p style="margin-top:8px">Réservation conseillée à l'avance, selon l'occupation de l'hôtel.</p>
+        <p class="extra">✨ En supplément : menu « À la Carte » spécial (poissons, fruits de mer, viandes, grands vins tunisiens) — mi-mai à oct, 19:00–21:30, sur demande.</p>
+      </div>
+    </details>
+
+    <div class="card">
+      <h3>Snacking & en-cas <span class="hours">24/24</span></h3>
+      <p><b>Le Marquis</b> (Lobby Bar) — salé & sucré, pizza, sandwichs, pâtisseries, 24h/24.</p>
+      <p style="margin-top:6px"><b>Coco de Mer</b> — beignets, hot-dog, crêpes, gaufres, panini, 15:00–17:00 (mi-mai à oct).</p>
+      <p style="margin-top:6px"><b>Apéro Time</b> — Le Marquis & Mac Hari (Pool Bar) — chips, fromage, olives, amuse-bouches, 17:00–19:00.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="bars">
+    <h2><span class="icon">🍹</span>Bars & boissons</h2>
+    <p class="section-sub">Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Lobby Bar<br><span style="font-weight:400;font-size:12.5px;color:var(--ink-soft)">« Le Marquis »</span></h3>
+        <p class="hours" style="margin-top:4px">24/24</p>
+      </div>
+      <div class="card">
+        <h3>Pool Bar<br><span style="font-weight:400;font-size:12.5px;color:var(--ink-soft)">« Mac Hari »</span></h3>
+        <p class="hours" style="margin-top:4px">10:00–00:00 (été) · 10:00–18:00 (hiver)</p>
+      </div>
+      <div class="card">
+        <h3>Beach Bar<br><span style="font-weight:400;font-size:12.5px;color:var(--ink-soft)">« La Cabane »</span></h3>
+        <p class="hours" style="margin-top:4px">10:00–19:00 · mai–oct</p>
+      </div>
+      <div class="card">
+        <h3>Café maure<br><span style="font-weight:400;font-size:12.5px;color:var(--ink-soft)">« La Kasbah »</span></h3>
+        <p class="hours" style="margin-top:4px">16:00–00:00</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Table à cocktails</h3>
+      <p>Terrasse du Lobby Bar — cocktails du jour, avec ou sans alcool. 19:00–23:00, mi-mai à oct.</p>
+    </div>
+
+    <div class="card">
+      <h3>Animation & soirée</h3>
+      <p><b>Hiver</b> : Amphithéâtre intérieur, spectacle + disco, 21:30–23:00.</p>
+      <p style="margin-top:4px"><b>Été</b> : Terrasse animation en plein air, spectacle + disco, 22:00–23:30.</p>
+      <p style="margin-top:6px">Soirées à thème (mousse, pool party, tenue blanche...) une fois par semaine.</p>
+    </div>
+
+    <div class="note">
+      <b>À savoir :</b> la loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes dans tous les bars. Chicha, café espresso italien et alcools importés sont également en supplément.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="activites">
+    <h2><span class="icon">🎾</span>Sport & activités</h2>
+    <p class="section-sub">Programme d'animation multilingue, selon l'occupation de l'hôtel et la météo.</p>
+
+    <div class="pill-row">
+      <span class="pill">🎾 Tennis (6 courts)</span>
+      <span class="pill">🏊 2 piscines extérieures</span>
+      <span class="pill">🏊 Piscine intérieure chauffée</span>
+      <span class="pill">🏐 Beach-volley</span>
+      <span class="pill">⛳ Mini-golf</span>
+      <span class="pill">🏋️ Fitness & aquagym</span>
+      <span class="pill">🎭 Spectacles & cabarets</span>
+      <span class="pill">🎲 Jeux de société</span>
+    </div>
+
+    <details class="card" style="margin-top:14px">
+      <summary><h3>Mini Club (4–12 ans)</h3><span class="chev">▾</span></summary>
+      <div class="body">
+        <p>10:00–17:00, encadré par l'équipe d'animation, groupes par âge. Salle climatisée, TV, Wi-Fi, aire de jeux extérieure ombragée.</p>
+        <p style="margin-top:6px">Baby-sitting (4–12 ans) sur réservation, en supplément, 18:00–00:00.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><h3>Programme Ados (13–16 ans)</h3><span class="chev">▾</span></summary>
+      <div class="body">
+        <p>Programme dédié pendant les vacances scolaires d'été : activités, sport, tournois, Wi-Fi partout dans l'hôtel.</p>
+      </div>
+    </details>
+
+    <div class="card">
+      <h3>Plage & piscine</h3>
+      <p>Transats, matelas et parasols gratuits — 08:00–18:00. Une caution est demandée pour les serviettes.</p>
+    </div>
+
+    <div class="note">
+      <b>En supplément (sur place ou à proximité) :</b> location de raquette de tennis, éclairage nocturne des courts (70 TND/h), location de vélo & voiture, ski nautique, jet-ski, banana boat, parasailing, kite-surf, kayak, planche à voile, équitation, quad & buggy, plongée sous-marine (PADI/CMAS), leçons individuelles de tennis et natation.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="bienetre">
+    <h2><span class="icon">💆</span>Bien-être & loisirs</h2>
+
+    <div class="card">
+      <h3>The Hari Spa</h3>
+      <p>Hammam, massages, soins de beauté, forfaits cures, coiffeur — environ 8 cabines. Sur place.</p>
+    </div>
+
+    <div class="card">
+      <h3>Djerba Golf Club</h3>
+      <p>27 trous, 3 parcours de 9 trous. À 15 km de l'hôtel (≈10 min en taxi).</p>
+      <p style="margin-top:4px">www.djerbagolf.com.tn · resa@djerbagolf.com.tn</p>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">👨‍⚕️ Médecin sur demande 24/24</span>
+      <span class="pill">💊 Infirmerie</span>
+      <span class="pill">🧺 Blanchisserie</span>
+      <span class="pill">🎱 Billard & jeux vidéo</span>
+      <span class="pill">🛍️ The Gallery — boutiques</span>
+      <span class="pill">📸 Photographe</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="pratique">
+    <h2><span class="icon">ℹ️</span>Infos pratiques</h2>
+
+    <div class="card">
+      <h3>Votre chambre</h3>
+      <p>Mini-bar vide, coffre-fort, sèche-cheveux, TV 32" écran plat, Wi-Fi gratuit — tout inclus.</p>
+      <p style="margin-top:4px">Climatisation : 1 juin–30 sept · Chauffage : 1 déc–31 mars (selon météo le reste de l'année).</p>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">📶 Wi-Fi gratuit partout</span>
+      <span class="pill">🏧 DAB au hall de réception</span>
+      <span class="pill">📺 +50 chaînes satellite</span>
+    </div>
+
+    <div class="note">
+      <b>Arrivée :</b> eau et serviettes rafraîchissantes offertes à l'arrivée (selon occupation). Les boissons sont servies à table ou en libre-service, généralement dans des verres.
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <h2><span class="icon">📍</span>Contact</h2>
+    <div class="contact-card">
+      <h3>Hari Club Beach Resort ★★★★</h3>
+      <div class="row"><span class="k">Adresse</span><span>Route Touristique Aghir, 4116 Djerba Aghir, Tunisie</span></div>
+      <div class="row"><span class="k">Téléphone</span><span>+216 75 751 502 / 503</span></div>
+      <div class="row"><span class="k">Réservations</span><span>booking@hari-club.com</span></div>
+      <div class="row"><span class="k">Site web</span><span>www.hari-club.com</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Guide numérique conçu par <span class="brand">OmarSoft</span> pour Hari Club Beach Resort · <a class="site" href="https://www.hari-club.com">hari-club.com</a>
+</footer>
+
+<div class="proto-flag">🔧 PROTOTYPE — contenu à valider avec l'hôtel avant diffusion finale</div>
+
+</body>
+</html>
