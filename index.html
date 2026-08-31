@@ -4,198 +4,196 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hari Club Beach Resort — Djerba</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#f5f5f5;color:#333;line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#f8f9fa;line-height:1.6;overflow-x:hidden}
 
-/* ===== 3D SLIDESHOW BACKGROUND ===== */
-.slideshow-3d{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:-1;perspective:1000px;overflow:hidden;background:#000}
-.slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 2s ease-in-out,transform 6s ease-out;transform:scale(1.1) rotateY(5deg);background-size:cover;background-position:center}
-.slide.active{opacity:1;transform:scale(1) rotateY(0deg)}
-.slide::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,62,138,0.6),rgba(0,119,182,0.4),rgba(247,127,0,0.2));z-index:1}
-.slide::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(0,0,0,0.3) 100%);z-index:2}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .35s;background:transparent}
+.navbar.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 30px rgba(0,0,0,.1);padding:.7rem 2rem}
+.navbar.scrolled .nav-logo{color:#023e8a}
+.navbar.scrolled .nav-links a{color:#1a1a2e}
+.navbar.scrolled .hamburger span{background:#1a1a2e}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;transition:all .35s}
+.nav-logo span{color:#fcbf49}
+.nav-links{display:flex;align-items:center;gap:.3rem}
+.nav-links a{color:#fff;font-size:.88rem;font-weight:500;padding:.5rem .9rem;border-radius:10px;transition:all .3s;text-decoration:none}
+.nav-links a:hover{background:rgba(255,255,255,.2)}
+.navbar.scrolled .nav-links a:hover{background:#90e0ef;color:#023e8a}
 
-/* Effet de particules Djerba */
-.particles{position:absolute;inset:0;z-index:3;pointer-events:none}
-.particle{position:absolute;width:4px;height:4px;background:rgba(255,255,255,0.6);border-radius:50%;animation:float 15s infinite}
-@keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(50px)}}
-
-/* Effet vague Djerba */
-.wave-effect{position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,rgba(0,119,182,0.3),transparent);z-index:2;animation:wave 8s ease-in-out infinite}
-@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-
-/* Navbar */
-.navbar{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);color:#333;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.1);transition:0.3s}
-.logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#023e8a}
-.logo span{color:#f77f00}
-.nav-links{display:flex;gap:1.5rem;align-items:center}
-.nav-links a{color:#333;text-decoration:none;font-size:0.9rem;font-weight:500;transition:0.3s;padding:0.5rem 1rem;border-radius:25px}
-.nav-links a:hover{background:#f77f00;color:#fff}
-.lang-flags{display:flex;gap:8px}
-.lang-flag{width:32px;height:22px;border:2px solid rgba(0,0,0,0.2);border-radius:4px;cursor:pointer;transition:0.3s;overflow:hidden;background:none;padding:0}
-.lang-flag:hover,.lang-flag.active{transform:scale(1.15);border-color:#f77f00;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+/* Drapeaux */
+.lang-flags{display:flex;gap:6px;margin-left:1rem}
+.lang-flag{width:32px;height:22px;border:2px solid rgba(255,255,255,.4);border-radius:4px;overflow:hidden;cursor:pointer;transition:all .3s;padding:0;background:none}
+.lang-flag:hover,.lang-flag.active{transform:scale(1.2);border-color:#fcbf49;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .lang-flag svg{width:100%;height:100%;display:block}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:5px;cursor:pointer}
-.hamburger span{width:25px;height:3px;background:#023e8a;border-radius:3px;transition:0.3s}
+.navbar.scrolled .lang-flag{border-color:rgba(0,119,182,.3)}
+.navbar.scrolled .lang-flag.active{border-color:#0077b6}
 
-/* Hero Section */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:8rem 2rem 4rem;position:relative}
-.hero-content{max-width:900px;text-align:center;color:#fff;z-index:10;animation:fadeInUp 1s ease-out}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);padding:0.6rem 1.5rem;border-radius:50px;font-size:0.85rem;margin-bottom:2rem;border:1px solid rgba(255,255,255,0.3)}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem;text-shadow:3px 3px 6px rgba(0,0,0,0.4);line-height:1.2}
-.hero .script{font-family:'Dancing Script',cursive;color:#fcbf49;font-size:2.5rem;display:block;margin-bottom:0.5rem}
-.hero p{font-size:1.2rem;margin-bottom:2.5rem;opacity:0.95;text-shadow:1px 1px 3px rgba(0,0,0,0.3)}
-.hero-features{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.feature{background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);padding:0.7rem 1.3rem;border-radius:50px;font-size:0.95rem;border:1px solid rgba(255,255,255,0.2);transition:0.3s}
-.feature:hover{background:rgba(255,255,255,0.3);transform:translateY(-3px)}
-.btn{display:inline-block;padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-weight:600;margin:0.5rem;transition:0.3s;font-size:1rem}
-.btn-primary{background:#f77f00;color:#fff;box-shadow:0 6px 20px rgba(247,127,0,0.4)}
-.btn-primary:hover{background:#fcbf49;transform:translateY(-3px);box-shadow:0 10px 30px rgba(247,127,0,0.5)}
-.btn-outline{background:transparent;color:#fff;border:2px solid #fff}
-.btn-outline:hover{background:#fff;color:#023e8a;transform:translateY(-3px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;padding:5px;border:none}
+.hamburger span{width:25px;height:3px;background:#fff;border-radius:3px;transition:all .3s}
 
-/* Sections */
-section{padding:5rem 2rem;background:#fff}
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/beach1.jpg') center/cover;animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.15)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,62,138,.75),rgba(0,119,182,.5),rgba(0,0,0,.3))}
+.hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:2rem;max-width:850px}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);padding:.5rem 1.5rem;border-radius:50px;font-size:.85rem;margin-bottom:1.5rem;letter-spacing:1px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:.5rem;text-shadow:0 4px 30px rgba(0,0,0,.3)}
+.hero-title .script{font-family:'Dancing Script',cursive;color:#fcbf49;font-size:.7em;display:block}
+.hero-subtitle{font-size:clamp(1rem,2.5vw,1.25rem);font-weight:300;margin-bottom:2rem;opacity:.95}
+.hero-features{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:2.5rem}
+.hero-feature{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:.6rem 1.2rem;border-radius:50px;font-size:.9rem}
+.hero-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.2rem;border-radius:50px;font-weight:600;font-size:.95rem;transition:all .35s;letter-spacing:.5px;text-decoration:none;border:none;cursor:pointer}
+.btn-primary{background:#f77f00;color:#fff;box-shadow:0 8px 25px rgba(247,127,0,.4)}
+.btn-primary:hover{background:#fcbf49;transform:translateY(-3px);box-shadow:0 12px 35px rgba(247,127,0,.5)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{background:#fff;color:#023e8a;border-color:#fff;transform:translateY(-3px)}
+.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:#fff;animation:bounce 2s infinite;z-index:2}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-10px)}}
+
+/* SECTIONS */
+section{padding:5rem 1.5rem}
 .container{max-width:1200px;margin:0 auto}
-.section-title{text-align:center;margin-bottom:3.5rem}
-.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:#023e8a;margin-bottom:0.5rem}
-.section-title p{color:#666;max-width:600px;margin:0 auto;font-size:1.05rem}
-.divider{width:80px;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);margin:1rem auto;border-radius:2px}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header .overline{display:inline-block;color:#f77f00;font-weight:600;font-size:.85rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:#1a1a2e;margin-bottom:.8rem}
+.section-header p{color:#666;max-width:600px;margin:0 auto;font-size:1.05rem}
+.section-divider{width:60px;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);border-radius:2px;margin:1rem auto}
 
-/* Gallery */
-.gallery{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;position:relative;overflow:hidden}
-.gallery::before{content:'';position:absolute;top:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,rgba(26,26,46,1),transparent);z-index:1}
-.gallery .section-title h2{color:#fff}
-.gallery .section-title p{color:rgba(255,255,255,0.8)}
-.gallery-filters{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:3rem;position:relative;z-index:10}
-.filter-btn{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:0.7rem 1.8rem;border-radius:50px;cursor:pointer;transition:0.3s;font-size:0.95rem;font-weight:500;backdrop-filter:blur(10px)}
-.filter-btn:hover,.filter-btn.active{background:#f77f00;border-color:#f77f00;transform:translateY(-2px);box-shadow:0 5px 15px rgba(247,127,0,0.3)}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;position:relative;z-index:10}
-.gallery-item{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;transition:0.4s;background:#2a2a4a;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.gallery-item:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,0.4)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:0.6s}
-.gallery-item:hover img{transform:scale(1.15)}
-.gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);padding:2rem;color:#fff;opacity:0;transition:0.3s}
-.gallery-item:hover .gallery-overlay{opacity:1}
-.gallery-overlay .zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(247,127,0,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:0.3s;box-shadow:0 5px 15px rgba(0,0,0,0.3)}
-.gallery-item:hover .gallery-overlay .zoom{transform:translate(-50%,-50%) scale(1.1)}
+/* QUICK INFO */
+.quick-info{background:#fff}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.info-card{background:linear-gradient(135deg,#f8f9fa,#fff);border:1px solid #e9ecef;border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:all .35s;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);transform:scaleX(0);transition:all .35s;transform-origin:left}
+.info-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.12);border-color:transparent}
+.info-card:hover::before{transform:scaleX(1)}
+.info-card .card-icon{font-size:2.5rem;margin-bottom:1rem}
+.info-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.5rem}
+.info-card p{color:#666;font-size:.9rem}
 
-/* Lightbox */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.98);z-index:10000;display:none;align-items:center;justify-content:center}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90%;max-height:85vh;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.6);animation:lightboxIn 0.4s ease}
-@keyframes lightboxIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
-.lightbox-close{position:absolute;top:2rem;right:2rem;width:50px;height:50px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;cursor:pointer;transition:0.3s;border:none;backdrop-filter:blur(10px)}
-.lightbox-close:hover{background:#f77f00;transform:rotate(90deg)}
-.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:60px;height:60px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;cursor:pointer;transition:0.3s;border:none;backdrop-filter:blur(10px)}
-.lightbox-nav:hover{background:#f77f00;transform:translateY(-50%) scale(1.1)}
-.lightbox-prev{left:2rem}
-.lightbox-next{right:2rem}
-.lightbox-counter{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:#fff;background:rgba(247,127,0,0.9);padding:0.5rem 1.5rem;border-radius:50px;font-size:0.95rem;font-weight:600}
-.lightbox-thumbs{position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);display:flex;gap:0.8rem;max-width:80vw;overflow-x:auto;padding:0.5rem}
-.thumb{width:80px;height:60px;border-radius:10px;overflow:hidden;cursor:pointer;opacity:0.5;transition:0.3s;border:3px solid transparent;flex-shrink:0}
-.thumb.active{opacity:1;border-color:#f77f00;transform:scale(1.1)}
-.thumb img{width:100%;height:100%;object-fit:cover}
+/* RESTAURANTS */
+.restaurants{background:linear-gradient(180deg,#f8f9fa,#fff)}
+.resto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+.resto-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1);transition:all .35s}
+.resto-card:hover{transform:translateY(-10px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.resto-card-header{background:linear-gradient(135deg,#0077b6,#023e8a);color:#fff;padding:1.5rem;position:relative}
+.resto-card-header .resto-icon{font-size:2rem;margin-bottom:.5rem}
+.resto-card-header h3{font-family:'Playfair Display',serif;font-size:1.4rem}
+.resto-card-header .resto-time{font-size:.85rem;opacity:.9;margin-top:.3rem}
+.resto-card-body{padding:1.5rem}
+.resto-card-body p{color:#555;font-size:.92rem;margin-bottom:1rem}
+.resto-card-body .badge{display:inline-block;background:#90e0ef;color:#023e8a;padding:.3rem .8rem;border-radius:50px;font-size:.75rem;font-weight:600;margin-right:.5rem;margin-bottom:.5rem}
+.resto-card-body .badge.accent{background:#fcbf49;color:#8b4513}
+.theme-list{list-style:none;margin-top:1rem}
+.theme-list li{padding:.5rem 0;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;font-size:.9rem}
+.theme-list li:last-child{border:none}
+.theme-list .day{font-weight:600;color:#0077b6}
 
-/* FAB */
-.fab{position:fixed;bottom:2rem;right:2rem;width:65px;height:65px;background:linear-gradient(135deg,#f77f00,#e36414);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;box-shadow:0 8px 25px rgba(247,127,0,0.4);cursor:pointer;transition:0.3s;border:none;z-index:999;animation:pulse 2s infinite}
-.fab:hover{transform:scale(1.1);box-shadow:0 12px 35px rgba(247,127,0,0.5)}
-@keyframes pulse{0%,100%{box-shadow:0 8px 25px rgba(247,127,0,0.4)}50%{box-shadow:0 8px 25px rgba(247,127,0,0.4),0 0 0 15px rgba(247,127,0,0.1)}}
+/* BARS */
+.bars{background:#1a1a2e;color:#fff;position:relative;overflow:hidden}
+.bars::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,119,182,.3),transparent);border-radius:50%}
+.bars .section-header h2{color:#fff}
+.bars .section-header p{color:rgba(255,255,255,.7)}
+.bars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;position:relative;z-index:1}
+.bar-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.8rem;transition:all .35s}
+.bar-card:hover{background:rgba(255,255,255,.15);transform:translateY(-5px);border-color:#f77f00}
+.bar-card .bar-icon{font-size:2rem;margin-bottom:1rem}
+.bar-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.3rem}
+.bar-card .bar-name{color:#fcbf49;font-size:.85rem;font-weight:500;margin-bottom:.8rem}
+.bar-card .bar-hours{font-size:.9rem;opacity:.85}
+.bar-card .bar-hours span{display:block;color:#90e0ef;font-weight:600;font-size:.8rem;margin-top:.3rem}
+.bar-note{background:rgba(247,127,0,.15);border-left:4px solid #f77f00;border-radius:10px;padding:1.2rem 1.5rem;margin-top:2.5rem;font-size:.88rem;color:rgba(255,255,255,.9);position:relative;z-index:1}
 
-/* Footer */
-footer{background:#0a0a1a;color:rgba(255,255,255,0.7);text-align:center;padding:3rem 2rem}
-footer a{color:#fcbf49}
+/* ACTIVITIES */
+.activities{background:linear-gradient(135deg,#e8f4f8,#f0f9ff)}
+.activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.2rem}
+.activity-item{background:#fff;border-radius:16px;padding:1.5rem 1rem;text-align:center;transition:all .35s;box-shadow:0 4px 15px rgba(0,0,0,.06)}
+.activity-item:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.activity-item .act-icon{font-size:2rem;margin-bottom:.8rem}
+.activity-item p{font-weight:600;font-size:.85rem}
 
-/* Responsive */
+.kids-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.kids-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 10px 40px rgba(0,0,0,.1);position:relative;overflow:hidden}
+.kids-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.kids-card.mini::before{background:linear-gradient(90deg,#ff6b6b,#feca57)}
+.kids-card.teen::before{background:linear-gradient(90deg,#48dbfb,#0abde3)}
+.kids-card .kids-icon{font-size:2.5rem;margin-bottom:1rem}
+.kids-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem}
+.kids-card p{color:#666;font-size:.9rem;margin-bottom:.8rem}
+.kids-card .kids-time{display:inline-block;background:#90e0ef;color:#023e8a;padding:.3rem .8rem;border-radius:50px;font-size:.8rem;font-weight:600}
+
+/* WELLNESS */
+.wellness{background:#fff}
+.wellness-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.wellness-card{border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1);transition:all .35s}
+.wellness-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.wellness-card-img{height:200px;background:linear-gradient(135deg,#90e0ef,#0077b6);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.wellness-card-body{padding:1.5rem}
+.wellness-card-body h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.5rem}
+.wellness-card-body p{color:#666;font-size:.9rem}
+
+/* PRACTICAL */
+.practical{background:linear-gradient(135deg,#fff9e6,#fff3cd)}
+.practical-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.practical-item{background:#fff;border-radius:16px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all .35s}
+.practical-item:hover{transform:translateX(5px);box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.practical-item .p-icon{font-size:1.8rem;flex-shrink:0}
+.practical-item h4{font-size:1rem;margin-bottom:.3rem}
+.practical-item p{font-size:.85rem;color:#666}
+
+/* CONTACT */
+.contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.contact-card{background:linear-gradient(135deg,#0077b6,#023e8a);color:#fff;border-radius:16px;padding:2rem;text-align:center;transition:all .35s}
+.contact-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.contact-card .c-icon{font-size:2rem;margin-bottom:1rem}
+.contact-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.5rem}
+.contact-card p{font-size:.9rem;opacity:.9}
+.contact-card a{color:#fcbf49;font-weight:600}
+
+/* FOOTER */
+.footer{background:#1a1a2e;color:rgba(255,255,255,.7);text-align:center;padding:2rem 1.5rem;font-size:.85rem}
+.footer a{color:#fcbf49}
+.footer .footer-brand{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.5rem}
+.footer .prototype-badge{display:inline-block;background:rgba(247,127,0,.2);color:#fcbf49;padding:.3rem 1rem;border-radius:50px;font-size:.75rem;margin-top:1rem}
+
+/* FAB GALLERY */
+.fab-gallery{position:fixed;bottom:2rem;right:2rem;width:65px;height:65px;background:linear-gradient(135deg,#f77f00,#e36414);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;box-shadow:0 8px 25px rgba(247,127,0,.4);z-index:999;transition:all .35s;animation:pulse 2s infinite;border:none;cursor:pointer}
+.fab-gallery:hover{transform:scale(1.1);box-shadow:0 12px 35px rgba(247,127,0,.5)}
+@keyframes pulse{0%,100%{box-shadow:0 8px 25px rgba(247,127,0,.4)}50%{box-shadow:0 8px 25px rgba(247,127,0,.4),0 0 0 15px rgba(247,127,0,.1)}}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
 @media(max-width:768px){
-.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;gap:1rem;box-shadow:0 5px 20px rgba(0,0,0,0.1)}
-.nav-links.active{display:flex}
+.nav-links{position:fixed;top:0;right:-100%;width:75%;height:100vh;background:#fff;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;transition:all .35s;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.nav-links.open{right:0}
+.nav-links a{color:#1a1a2e!important;font-size:1.1rem}
 .hamburger{display:flex}
-.hero h1{font-size:2rem}
-.gallery-grid{grid-template-columns:1fr}
-.lightbox-nav{width:45px;height:45px;font-size:1.5rem}
-.lightbox-prev{left:1rem}
-.lightbox-next{right:1rem}
+.hero-title{font-size:2.2rem}
+.hero-features{flex-direction:column;align-items:center}
+section{padding:3.5rem 1rem}
+.resto-grid,.bars-grid,.wellness-grid{grid-template-columns:1fr}
+.fab-gallery{width:55px;height:55px;bottom:1.5rem;right:1.5rem;font-size:1.5rem}
 }
 </style>
 </head>
 <body>
 
-<!-- 3D SLIDESHOW BACKGROUND -->
-<div class="slideshow-3d" id="slideshow">
-  <div class="slide active" style="background-image:url('images/beach1.jpg')">
-    <div class="particles" id="particles1"></div>
-    <div class="wave-effect"></div>
-  </div>
-  <div class="slide" style="background-image:url('images/beach2.jpg')">
-    <div class="particles" id="particles2"></div>
-    <div class="wave-effect"></div>
-  </div>
-  <div class="slide" style="background-image:url('images/beach3.jpg')">
-    <div class="particles" id="particles3"></div>
-    <div class="wave-effect"></div>
-  </div>
-  <div class="slide" style="background-image:url('images/beach4.jpg')">
-    <div class="particles" id="particles4"></div>
-    <div class="wave-effect"></div>
-  </div>
-  <div class="slide" style="background-image:url('images/beach5.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div>
-  <div class="slide" style="background-image:url('images/beach6.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div>
-  <div class="slide" style="background-image:url('images/beach7.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div>
-  <div class="slide" style="background-image:url('images/beach8.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div>
-  <div class="slide" style="background-image:url('images/beach9.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div> <div class="slide" style="background-image:url('images/miniclub1.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div></div> <div class="slide" style="background-image:url('images/miniclub2.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div></div> <div class="slide" style="background-image:url('images/miniclub3.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div></div> <div class="slide" style="background-image:url('images/miniclub4.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div></div> <div class="slide" style="background-image:url('images/miniclub5.jpg')">
-    <div class="particles" id="particles5"></div>
-    <div class="wave-effect"></div>
-  </div>
-</div>
-
 <!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Hari <span>Club</span></div>
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">Hari <span>Club</span></a>
   <div class="nav-links" id="navLinks">
     <a href="#restaurants" data-i18n="nav_restaurants">Restaurants</a>
     <a href="#bars" data-i18n="nav_bars">Bars</a>
     <a href="#activites" data-i18n="nav_activities">Activités</a>
     <a href="#bienetre" data-i18n="nav_wellness">Bien-être</a>
-    <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
     <div class="lang-flags">
       <button class="lang-flag active" data-lang="fr" title="Français">
@@ -213,118 +211,224 @@ footer a{color:#fcbf49}
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge" data-i18n="hero_badge">OUVERT 24/24 · TOUTE L'ANNÉE</div>
-    <h1>
+    <h1 class="hero-title">
       <span class="script" data-i18n="hero_welcome">Bienvenue au</span>
       <span data-i18n="hero_title">Hari Club Beach Resort</span>
     </h1>
-    <p data-i18n="hero_subtitle">Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.</p>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.</p>
     <div class="hero-features">
-      <div class="feature">📶 <span data-i18n="hero_wifi">Wi-Fi gratuit</span></div>
-      <div class="feature">️ <span data-i18n="hero_beach">Plage privée 400 m</span></div>
-      <div class="feature">🛏️ <span data-i18n="hero_rooms">212 chambres</span></div>
+      <div class="hero-feature"><span></span><span data-i18n="hero_wifi">Wi-Fi gratuit</span></div>
+      <div class="hero-feature"><span>🏖️</span><span data-i18n="hero_beach">Plage privée 400 m</span></div>
+      <div class="hero-feature"><span>🛏️</span><span data-i18n="hero_rooms">212 chambres & suites</span></div>
     </div>
-    <div>
-      <a href="#galerie" class="btn btn-primary" data-i18n="hero_gallery">️ Visite virtuelle</a>
+    <div class="hero-buttons">
+      <a href="galerie.html" class="btn btn-primary" data-i18n="hero_gallery">️ Galerie photos</a>
       <a href="#restaurants" class="btn btn-outline" data-i18n="hero_guide">📖 Guide complet</a>
     </div>
   </div>
+  <div class="scroll-indicator">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
 </section>
 
-<!-- GALLERY -->
-<section id="galerie" class="gallery">
+<!-- QUICK INFO -->
+<section class="quick-info">
   <div class="container">
-    <div class="section-title">
-      <h2 data-i18n="gal_title">Galerie Photos</h2>
-      <div class="divider"></div>
-      <p data-i18n="gal_subtitle">Faites votre visite virtuelle du Hari Club Beach Resort.</p>
+    <div class="info-grid">
+      <div class="info-card fade-in"><div class="card-icon">🍽️</div><h3 data-i18n="qi_restaurants">Restaurants</h3><p data-i18n="qi_restaurants_desc">Buffet principal, restaurant de plage & snacking 24/24</p></div>
+      <div class="info-card fade-in"><div class="card-icon"></div><h3 data-i18n="qi_bars">Bars & Boissons</h3><p data-i18n="qi_bars_desc">4 bars, cocktails, café maure — boissons incluses 10h–00h</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🎾</div><h3 data-i18n="qi_activities">Sport & Activités</h3><p data-i18n="qi_activities_desc">Tennis, aquagym, mini-club, spectacles & plus</p></div>
+      <div class="info-card fade-in"><div class="card-icon">💆</div><h3 data-i18n="qi_wellness">Bien-être</h3><p data-i18n="qi_wellness_desc">Spa, hammam, massages & Djerba Golf Club</p></div>
     </div>
-    <div class="gallery-filters">
-      <button class="filter-btn active" data-filter="all" data-i18n="gal_all">Tout</button>
-      <button class="filter-btn" data-filter="beach" data-i18n="gal_beach">🏖️ Plage</button>
-      <button class="filter-btn" data-filter="bars" data-i18n="gal_bars">🍹 Bars</button>
-      <button class="filter-btn" data-filter="kids" data-i18n="gal_kids">🎈 Enfants</button>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="restaurants" id="restaurants">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" data-i18n="resto_overline">Saveurs du monde</span>
+      <h2 data-i18n="resto_title">Restaurants</h2>
+      <div class="section-divider"></div>
+      <p data-i18n="resto_subtitle">Tous les repas et snacks sont inclus dans votre formule Ultra All Inclusive.</p>
     </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item" data-category="beach" data-src="images/beach1.jpg">
-        <img src="images/beach1.jpg" alt="Plage" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
-          <span data-i18n="img1">Plage & cocotiers</span>
+    <div class="resto-grid">
+      <div class="resto-card fade-in">
+        <div class="resto-card-header"><div class="resto-icon">🌅</div><h3 data-i18n="resto_breakfast">Petit-déjeuner</h3><div class="resto-time" data-i18n="resto_breakfast_time">06:00 – 10:00 · Tous les jours</div></div>
+        <div class="resto-card-body"><p data-i18n="resto_breakfast_desc">Buffet au restaurant principal, show cooking dès 8h. Petit-déjeuner tardif : Lobby Bar, 10:00–11:00.</p><span class="badge" data-i18n="badge_included">Inclus</span></div>
+      </div>
+      <div class="resto-card fade-in">
+        <div class="resto-card-header" style="background:linear-gradient(135deg,#f77f00,#e36414)"><div class="resto-icon">☀️</div><h3 data-i18n="resto_lunch">Déjeuner « Le Gourmet »</h3><div class="resto-time" data-i18n="resto_lunch_time">12:30 – 14:30 · 7j/7</div></div>
+        <div class="resto-card-body"><p data-i18n="resto_lunch_desc">Buffet au restaurant principal, salle climatisée + terrasse piscine. Boissons et vins tunisiens inclus.</p><span class="badge" data-i18n="badge_winter">Hiver 12:30–14:00</span><span class="badge accent" data-i18n="badge_summer">Été 12:30–14:30</span></div>
+      </div>
+      <div class="resto-card fade-in">
+        <div class="resto-card-header" style="background:linear-gradient(135deg,#6a0572,#ab1d6f)"><div class="resto-icon">🌙</div><h3 data-i18n="resto_dinner">Dîner « Le Gourmet »</h3><div class="resto-time" data-i18n="resto_dinner_time">18:30–21:30 · 7j/7</div></div>
+        <div class="resto-card-body">
+          <p data-i18n="resto_dinner_desc">Buffet au restaurant principal, 3 soirées à thème par semaine. Tenue correcte exigée.</p>
+          <ul class="theme-list">
+            <li><span class="day" data-i18n="day_mon">Lundi</span><span data-i18n="theme_italian">🇮 Italien</span></li>
+            <li><span class="day" data-i18n="day_wed">Mercredi</span><span data-i18n="theme_oriental">🌙 Oriental</span></li>
+            <li><span class="day" data-i18n="day_fri">Vendredi</span><span data-i18n="theme_med">🫒 Méditerranéen</span></li>
+            <li><span class="day" data-i18n="day_sat">Samedi</span><span data-i18n="theme_intl">🌍 International</span></li>
+          </ul>
         </div>
       </div>
-      <div class="gallery-item" data-category="beach" data-src="images/beach2.jpg">
-        <img src="images/beach2.jpg" alt="Plage" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
-          <span data-i18n="img2">Parasols & mer turquoise</span>
-        </div>
+      <div class="resto-card fade-in">
+        <div class="resto-card-header" style="background:linear-gradient(135deg,#00b4d8,#0077b6)"><div class="resto-icon">🌴</div><h3 data-i18n="resto_coco">Le Coco de Mer</h3><div class="resto-time" data-i18n="resto_coco_time">19:00–21:30 · mi-mai à oct</div></div>
+        <div class="resto-card-body"><p data-i18n="resto_coco_desc">Pergola en bord de plage. Menus en rotation : tunisienne, méditerranéenne, italienne, menu du pêcheur.</p><span class="badge accent" data-i18n="badge_reservation">Réservation conseillée</span></div>
       </div>
-      <div class="gallery-item" data-category="beach" data-src="images/beach3.jpg">
-        <img src="images/beach3.jpg" alt="Plage" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom"></div>
-          <span data-i18n="img3">Vue panoramique</span>
-        </div>
-      </div>
-      <div class="gallery-item" data-category="beach" data-src="images/beach4.jpg">
-        <img src="images/beach4.jpg" alt="Plage" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
-          <span data-i18n="img4">Palmier & transats</span>
-        </div>
-      </div>
-      <div class="gallery-item" data-category="beach" data-src="images/beach5.jpg">
-        <img src="images/beach5.jpg" alt="Plage" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
-          <span data-i18n="img5">Bord de mer</span>
-        </div>
-      </div>
-      <div class="gallery-item" data-category="kids" data-src="images/miniclub.jpg">
-        <img src="images/miniclub.jpg" alt="Mini Club" loading="lazy">
-        <div class="gallery-overlay">
-          <div class="zoom">🔍</div>
-          <span data-i18n="img6">Mini Club</span>
+      <div class="resto-card fade-in">
+        <div class="resto-card-header" style="background:linear-gradient(135deg,#2d6a4f,#40916c)"><div class="resto-icon">🥪</div><h3 data-i18n="resto_snack">Snacking & en-cas</h3><div class="resto-time" data-i18n="resto_snack_time">24/24</div></div>
+        <div class="resto-card-body">
+          <p><strong data-i18n="snack_marquis">Le Marquis (Lobby Bar)</strong> — <span data-i18n="snack_marquis_desc">sandwichs, pâtisseries, 24h/24</span></p>
+          <p style="margin-top:.5rem"><strong data-i18n="snack_coco">Coco de Mer</strong> — <span data-i18n="snack_coco_desc">crêpes, 15:00–17:00</span></p>
+          <p style="margin-top:.5rem"><strong data-i18n="snack_apero">Apéro Time</strong> — <span data-i18n="snack_apero_desc">chips, olives, pop-corn, 17:00–19:00</span></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">✕</button>
-  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-  <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
-  <img id="lightboxImg" src="" alt="">
-  <div class="lightbox-counter" id="lightboxCounter"></div>
-  <div class="lightbox-thumbs" id="lightboxThumbs"></div>
-</div>
+<!-- BARS -->
+<section class="bars" id="bars">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" style="color:#fcbf49" data-i18n="bars_overline">Cocktails & ambiance</span>
+      <h2 data-i18n="bars_title">Bars & Boissons</h2>
+      <div class="section-divider"></div>
+      <p data-i18n="bars_subtitle">Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.</p>
+    </div>
+    <div class="bars-grid">
+      <div class="bar-card fade-in"><div class="bar-icon"></div><h3 data-i18n="bar_lobby">Lobby Bar</h3><div class="bar-name">« Le Marquis »</div><div class="bar-hours" data-i18n="bar_lobby_hours">Ouvert 24h/24</div></div>
+      <div class="bar-card fade-in"><div class="bar-icon">🏊</div><h3 data-i18n="bar_pool">Pool Bar</h3><div class="bar-name">« Mac Hari »</div><div class="bar-hours"><span data-i18n="bar_pool_summer">Été : 10:00 – 00:00</span><span data-i18n="bar_pool_winter">Hiver : 10:00 – 18:00</span></div></div>
+      <div class="bar-card fade-in"><div class="bar-icon">🏖️</div><h3 data-i18n="bar_beach">Beach Bar</h3><div class="bar-name">« La Cabane »</div><div class="bar-hours"><span data-i18n="bar_beach_hours">10:00 – 19:00 · mai–oct</span></div></div>
+      <div class="bar-card fade-in"><div class="bar-icon">☕</div><h3 data-i18n="bar_cafe">Café maure</h3><div class="bar-name">« La Kasbah »</div><div class="bar-hours"><span data-i18n="bar_cafe_hours">16:00 – 00:00</span></div></div>
+      <div class="bar-card fade-in"><div class="bar-icon">🍹</div><h3 data-i18n="bar_cocktail">Table à cocktails</h3><div class="bar-name" data-i18n="bar_cocktail_name">Terrasse du Lobby Bar</div><div class="bar-hours"><span data-i18n="bar_cocktail_hours">Cocktails du jour · 19:00–23:00 · mi-mai à oct</span></div></div>
+      <div class="bar-card fade-in"><div class="bar-icon">🎭</div><h3 data-i18n="bar_show">Animation & soirée</h3><div class="bar-name" data-i18n="bar_show_name">Spectacles & disco</div><div class="bar-hours"><span data-i18n="bar_show_winter">Hiver : 21:30–23:00</span><span data-i18n="bar_show_summer">Été : 22:00–23:30</span></div></div>
+    </div>
+    <div class="bar-note fade-in">
+      <strong data-i18n="bar_note_title">ℹ️ À savoir :</strong>
+      <span data-i18n="bar_note_text">La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes. Chicha, café espresso italien et alcools importés sont en supplément.</span>
+    </div>
+  </div>
+</section>
 
-<!-- FAB -->
-<button class="fab" id="fabGallery" title="Galerie">️</button>
+<!-- ACTIVITIES -->
+<section class="activities" id="activites">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" data-i18n="act_overline">Fun & détente</span>
+      <h2 data-i18n="act_title">Sport & Activités</h2>
+      <div class="section-divider"></div>
+      <p data-i18n="act_subtitle">Programme d'animation multilingue, selon l'occupation de l'hôtel et la météo.</p>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-item fade-in"><div class="act-icon">🎾</div><p data-i18n="act_tennis">Tennis (6 courts)</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🏊</div><p data-i18n="act_pool">Piscine chauffée</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🏐</div><p data-i18n="act_volley">Beach-volley</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">⛳</div><p data-i18n="act_golf">Mini-golf</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🧘</div><p data-i18n="act_aqua">Aquagym</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🎭</div><p data-i18n="act_show">Spectacles</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🎲</div><p data-i18n="act_games">Jeux de société</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">🚤</div><p data-i18n="act_watersports">Sports nautiques</p></div>
+    </div>
+    <div class="kids-section">
+      <div class="kids-card mini fade-in">
+        <div class="kids-icon">🎈</div>
+        <h3 data-i18n="kids_title">Mini Club</h3>
+        <p data-i18n="kids_desc">Encadré par l'équipe d'animation, groupes par âge. Salle climatisée, TV, Wi-Fi, aire de jeux extérieure ombragée.</p>
+        <span class="kids-time" data-i18n="kids_time">4–12 ans · 10:00–17:00</span>
+        <p style="margin-top:1rem;font-size:.85rem;color:#888" data-i18n="kids_babysitting">Baby-sitting sur réservation, en supplément, 18:00–00:00</p>
+      </div>
+      <div class="kids-card teen fade-in">
+        <div class="kids-icon">🎮</div>
+        <h3 data-i18n="teen_title">Programme Ados</h3>
+        <p data-i18n="teen_desc">Programme dédié pendant les vacances scolaires d'été : activités, sport, tournois, Wi-Fi partout dans l'hôtel.</p>
+        <span class="kids-time" data-i18n="teen_time">13–16 ans · Vacances d'été</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WELLNESS -->
+<section class="wellness" id="bienetre">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" data-i18n="well_overline">Relaxation</span>
+      <h2 data-i18n="well_title">Bien-être & Loisirs</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="wellness-grid">
+      <div class="wellness-card fade-in"><div class="wellness-card-img">💆</div><div class="wellness-card-body"><h3>The Hari Spa</h3><p data-i18n="well_spa_desc">Hammam, massages, soins de beauté, forfaits cures, coiffeur — environ 8 cabines. Sur place.</p></div></div>
+      <div class="wellness-card fade-in"><div class="wellness-card-img" style="background:linear-gradient(135deg,#52b788,#2d6a4f)"></div><div class="wellness-card-body"><h3>Djerba Golf Club</h3><p data-i18n="well_golf_desc">27 trous, 3 parcours de 9 trous. À 15 km de l'hôtel (≈10 min en taxi).</p><p style="margin-top:.8rem;font-size:.85rem"><a href="https://www.djerbagolf.com.tn" style="color:#0077b6">www.djerbagolf.com.tn</a></p></div></div>
+      <div class="wellness-card fade-in"><div class="wellness-card-img" style="background:linear-gradient(135deg,#e76f51,#f4a261)">🛎️</div><div class="wellness-card-body"><h3 data-i18n="well_services">Services</h3><p data-i18n="well_services_desc">👨‍⚕️ Médecin 24/24 · 💊 Infirmerie · 🧺 Blanchisserie · 🛍️ Boutiques · 📸 Photographe</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICAL -->
+<section class="practical" id="pratique">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" data-i18n="prac_overline">Votre confort</span>
+      <h2 data-i18n="prac_title">Infos pratiques</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="practical-grid">
+      <div class="practical-item fade-in"><div class="p-icon">🛏️</div><div><h4 data-i18n="prac_room">Votre chambre</h4><p data-i18n="prac_room_desc">Mini-bar vide, coffre-fort, sèche-cheveux, TV 32", Wi-Fi gratuit — tout inclus.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon">❄️</div><div><h4 data-i18n="prac_climate">Clim & chauffage</h4><p data-i18n="prac_climate_desc">Clim : 1 juin–30 sept · Chauffage : 1 déc–31 mars.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon">📶</div><div><h4 data-i18n="prac_wifi">Wi-Fi gratuit</h4><p data-i18n="prac_wifi_desc">Partout dans l'hôtel, chambres incluses.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon">🏧</div><div><h4 data-i18n="prac_atm">DAB</h4><p data-i18n="prac_atm_desc">Distributeur automatique au hall de réception.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon">📺</div><div><h4 data-i18n="prac_tv">TV Satellite</h4><p data-i18n="prac_tv_desc">+50 chaînes satellite internationales.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon"></div><div><h4 data-i18n="prac_arrival">Arrivée</h4><p data-i18n="prac_arrival_desc">Eau et serviettes rafraîchissantes offertes à l'arrivée.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" data-i18n="contact_overline">Nous trouver</span>
+      <h2 data-i18n="contact_title">Contact</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card fade-in"><div class="c-icon">📍</div><h3 data-i18n="contact_address_title">Adresse</h3><p>Route Touristique Aghir,<br>4116 Djerba Aghir, Tunisie</p></div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#f77f00,#e36414)"><div class="c-icon">📞</div><h3 data-i18n="contact_phone_title">Téléphone</h3><p><a href="tel:+21675751502">+216 75 751 502</a><br><a href="tel:+21675751503">+216 75 751 503</a></p></div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#6a0572,#ab1d6f)"><div class="c-icon">✉️</div><h3 data-i18n="contact_email_title">Réservations</h3><p><a href="mailto:booking@hari-club.com">booking@hari-club.com</a></p></div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#2d6a4f,#40916c)"><div class="c-icon">🌐</div><h3 data-i18n="contact_web_title">Site web</h3><p><a href="https://www.hari-club.com" target="_blank">www.hari-club.com</a></p></div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
-<footer>
-  <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:0.5rem">Hari Club Beach Resort ★★★★</div>
+<footer class="footer">
+  <div class="footer-brand">Hari Club Beach Resort ★★★★</div>
   <p data-i18n="footer_credit">Guide numérique conçu par OmarSoft pour Hari Club Beach Resort</p>
-  <p>© 2026 · <a href="https://www.hari-club.com">hari-club.com</a></p>
+  <p>© 2026 Hari Club Beach Resort · <a href="https://www.hari-club.com">hari-club.com</a></p>
+  <div class="prototype-badge" data-i18n="footer_prototype">🔧 PROTOTYPE — contenu à valider avec l'hôtel</div>
 </footer>
 
+<!-- FAB GALLERY BUTTON -->
+<button class="fab-gallery" id="fabGallery" title="Galerie photos" aria-label="Ouvrir la galerie">🖼️</button>
+
 <script>
-// Translations
+// TRANSLATIONS
 const translations={
-fr:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activités",nav_wellness:"Bien-être",nav_gallery:"Galerie",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_welcome:"Bienvenue au",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres",hero_gallery:"🖼️ Visite virtuelle",hero_guide:"📖 Guide complet",gal_title:"Galerie Photos",gal_subtitle:"Faites votre visite virtuelle du Hari Club Beach Resort.",gal_all:"Tout",gal_beach:"🏖️ Plage",gal_bars:" Bars",gal_kids:"🎈 Enfants",img1:"Plage & cocotiers",img2:"Parasols & mer turquoise",img3:"Vue panoramique",img4:"Palmier & transats",img5:"Bord de mer",img6:"Mini Club",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort"},
-en:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activities",nav_wellness:"Wellness",nav_gallery:"Gallery",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_welcome:"Welcome to",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms",hero_gallery:"🖼️ Virtual tour",hero_guide:"📖 Full guide",gal_title:"Photo Gallery",gal_subtitle:"Take your virtual tour of Hari Club Beach Resort.",gal_all:"All",gal_beach:"🏖️ Beach",gal_bars:"🍹 Bars",gal_kids:"🎈 Kids",img1:"Beach & palms",img2:"Parasols & turquoise sea",img3:"Panoramic view",img4:"Palm tree & loungers",img5:"Seaside",img6:"Kids Club",footer_credit:"Digital guide by OmarSoft"},
-de:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Aktivitäten",nav_wellness:"Wellness",nav_gallery:"Galerie",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_welcome:"Willkommen im",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Guide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer",hero_gallery:"️ Virtueller Rundgang",hero_guide:" Vollständiger Guide",gal_title:"Fotogalerie",gal_subtitle:"Machen Sie Ihren virtuellen Rundgang.",gal_all:"Alle",gal_beach:"🏖️ Strand",gal_bars:" Bars",gal_kids:"🎈 Kinder",img1:"Strand & Palmen",img2:"Sonnenschirme & türkis Meer",img3:"Panoramablick",img4:"Palme & Liegen",img5:"Meeresnähe",img6:"Kids Club",footer_credit:"Digitaler Guide von OmarSoft"}
+fr:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activités",nav_wellness:"Bien-être",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_welcome:"Bienvenue au",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres & suites",hero_gallery:"️ Galerie photos",hero_guide:"📖 Guide complet",qi_restaurants:"Restaurants",qi_restaurants_desc:"Buffet principal, restaurant de plage & snacking 24/24",qi_bars:"Bars & Boissons",qi_bars_desc:"4 bars, cocktails, café maure — boissons incluses 10h–00h",qi_activities:"Sport & Activités",qi_activities_desc:"Tennis, aquagym, mini-club, spectacles & plus",qi_wellness:"Bien-être",qi_wellness_desc:"Spa, hammam, massages & Djerba Golf Club",resto_overline:"Saveurs du monde",resto_title:"Restaurants",resto_subtitle:"Tous les repas et snacks sont inclus dans votre formule Ultra All Inclusive.",resto_breakfast:"Petit-déjeuner",resto_breakfast_time:"06:00 – 10:00 · Tous les jours",resto_breakfast_desc:"Buffet au restaurant principal, show cooking dès 8h. Petit-déjeuner tardif : Lobby Bar, 10:00–11:00.",resto_lunch:"Déjeuner « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7j/7",resto_lunch_desc:"Buffet au restaurant principal, salle climatisée + terrasse piscine. Boissons et vins tunisiens inclus.",resto_dinner:"Dîner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7j/7",resto_dinner_desc:"Buffet au restaurant principal, 3 soirées à thème par semaine. Tenue correcte exigée.",day_mon:"Lundi",day_wed:"Mercredi",day_fri:"Vendredi",day_sat:"Samedi",theme_italian:"🇮🇹 Italien",theme_oriental:"🌙 Oriental",theme_med:"🫒 Méditerranéen",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mi-mai à oct",resto_coco_desc:"Pergola en bord de plage. Menus en rotation : tunisienne, méditerranéenne, italienne, menu du pêcheur.",resto_snack:"Snacking & en-cas",resto_snack_time:"24/24",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwichs, pâtisseries, 24h/24",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, pop-corn, 17:00–19:00",badge_included:"Inclus",badge_winter:"Hiver 12:30–14:00",badge_summer:"Été 12:30–14:30",badge_reservation:"Réservation conseillée",bars_overline:"Cocktails & ambiance",bars_title:"Bars & Boissons",bars_subtitle:"Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.",bar_lobby:"Lobby Bar",bar_lobby_hours:"Ouvert 24h/24",bar_pool:"Pool Bar",bar_pool_summer:"Été : 10:00 – 00:00",bar_pool_winter:"Hiver : 10:00 – 18:00",bar_beach:"Beach Bar",bar_beach_hours:"10:00 – 19:00 · mai–oct",bar_cafe:"Café maure",bar_cafe_hours:"16:00 – 00:00",bar_cocktail:"Table à cocktails",bar_cocktail_name:"Terrasse du Lobby Bar",bar_cocktail_hours:"Cocktails du jour · 19:00–23:00 · mi-mai à oct",bar_show:"Animation & soirée",bar_show_name:"Spectacles & disco",bar_show_winter:"Hiver : 21:30–23:00",bar_show_summer:"Été : 22:00–23:30",bar_note_title:"ℹ️ À savoir :",bar_note_text:"La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes. Chicha, café espresso italien et alcools importés sont en supplément.",act_overline:"Fun & détente",act_title:"Sport & Activités",act_subtitle:"Programme d'animation multilingue, selon l'occupation de l'hôtel et la météo.",act_tennis:"Tennis (6 courts)",act_pool:"Piscine chauffée",act_volley:"Beach-volley",act_golf:"Mini-golf",act_aqua:"Aquagym",act_show:"Spectacles",act_games:"Jeux de société",act_watersports:"Sports nautiques",kids_title:"Mini Club",kids_desc:"Encadré par l'équipe d'animation, groupes par âge. Salle climatisée, TV, Wi-Fi, aire de jeux extérieure ombragée.",kids_time:"4–12 ans · 10:00–17:00",kids_babysitting:"Baby-sitting sur réservation, en supplément, 18:00–00:00",teen_title:"Programme Ados",teen_desc:"Programme dédié pendant les vacances scolaires d'été : activités, sport, tournois, Wi-Fi partout dans l'hôtel.",teen_time:"13–16 ans · Vacances d'été",well_overline:"Relaxation",well_title:"Bien-être & Loisirs",well_spa_desc:"Hammam, massages, soins de beauté, forfaits cures, coiffeur — environ 8 cabines. Sur place.",well_golf_desc:"27 trous, 3 parcours de 9 trous. À 15 km de l'hôtel (≈10 min en taxi).",well_services:"Services",well_services_desc:"👨‍️ Médecin 24/24 · 💊 Infirmerie · 🧺 Blanchisserie · 🛍️ Boutiques · 📸 Photographe",prac_overline:"Votre confort",prac_title:"Infos pratiques",prac_room:"Votre chambre",prac_room_desc:"Mini-bar vide, coffre-fort, sèche-cheveux, TV 32\", Wi-Fi gratuit — tout inclus.",prac_climate:"Clim & chauffage",prac_climate_desc:"Clim : 1 juin–30 sept · Chauffage : 1 déc–31 mars.",prac_wifi:"Wi-Fi gratuit",prac_wifi_desc:"Partout dans l'hôtel, chambres incluses.",prac_atm:"DAB",prac_atm_desc:"Distributeur automatique au hall de réception.",prac_tv:"TV Satellite",prac_tv_desc:"+50 chaînes satellite internationales.",prac_arrival:"Arrivée",prac_arrival_desc:"Eau et serviettes rafraîchissantes offertes à l'arrivée.",contact_overline:"Nous trouver",contact_title:"Contact",contact_address_title:"Adresse",contact_phone_title:"Téléphone",contact_email_title:"Réservations",contact_web_title:"Site web",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — contenu à valider avec l'hôtel"},
+en:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Activities",nav_wellness:"Wellness",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_welcome:"Welcome to",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms & suites",hero_gallery:"🖼️ Photo Gallery",hero_guide:"📖 Full guide",qi_restaurants:"Restaurants",qi_restaurants_desc:"Main buffet, beach restaurant & 24/7 snacking",qi_bars:"Bars & Drinks",qi_bars_desc:"4 bars, cocktails, Moorish café — drinks included 10am–midnight",qi_activities:"Sports & Activities",qi_activities_desc:"Tennis, aquagym, kids club, shows & more",qi_wellness:"Wellness",qi_wellness_desc:"Spa, hammam, massages & Djerba Golf Club",resto_overline:"World flavors",resto_title:"Restaurants",resto_subtitle:"All meals and snacks are included in your Ultra All Inclusive package.",resto_breakfast:"Breakfast",resto_breakfast_time:"06:00 – 10:00 · Daily",resto_breakfast_desc:"Buffet at the main restaurant, show cooking from 8am. Late breakfast: Lobby Bar, 10:00–11:00.",resto_lunch:"Lunch « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 days/week",resto_lunch_desc:"Buffet at the main restaurant, air-conditioned room + pool terrace. Drinks and local Tunisian wines included.",resto_dinner:"Dinner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 days/week",resto_dinner_desc:"Buffet at the main restaurant, 3 themed evenings per week. Smart dress code required.",day_mon:"Monday",day_wed:"Wednesday",day_fri:"Friday",day_sat:"Saturday",theme_italian:"🇮🇹 Italian",theme_oriental:"🌙 Oriental",theme_med:"🫒 Mediterranean",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mid-May to Oct",resto_coco_desc:"Beachside pergola. Rotating menus: Tunisian, Mediterranean, Italian, fisherman's menu.",resto_snack:"Snacking & light bites",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwiches, pastries, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, popcorn, 17:00–19:00",badge_included:"Included",badge_winter:"Winter 12:30–14:00",badge_summer:"Summer 12:30–14:30",badge_reservation:"Reservation recommended",bars_overline:"Cocktails & atmosphere",bars_title:"Bars & Drinks",bars_subtitle:"Hot and cold drinks included 24/7. Local alcoholic drinks included from 10:00 to 00:00.",bar_lobby:"Lobby Bar",bar_lobby_hours:"Open 24/7",bar_pool:"Pool Bar",bar_pool_summer:"Summer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_beach:"Beach Bar",bar_beach_hours:"10:00 – 19:00 · May–Oct",bar_cafe:"Moorish Café",bar_cafe_hours:"16:00 – 00:00",bar_cocktail:"Cocktail table",bar_cocktail_name:"Lobby Bar terrace",bar_cocktail_hours:"Daily cocktails · 19:00–23:00 · mid-May to Oct",bar_show:"Entertainment & evening",bar_show_name:"Shows & disco",bar_show_winter:"Winter: 21:30–23:00",bar_show_summer:"Summer: 22:00–23:30",bar_note_title:"ℹ️ Please note:",bar_note_text:"Tunisian law prohibits serving alcohol to persons under 18. From midnight to 10:00, alcoholic drinks are chargeable. Shisha, Italian espresso and imported spirits are at extra charge.",act_overline:"Fun & relaxation",act_title:"Sports & Activities",act_subtitle:"Multilingual entertainment program, subject to hotel occupancy and weather.",act_tennis:"Tennis (6 courts)",act_pool:"Heated pool",act_volley:"Beach volleyball",act_golf:"Mini-golf",act_aqua:"Aquagym",act_show:"Shows",act_games:"Board games",act_watersports:"Water sports",kids_title:"Kids Club",kids_desc:"Supervised by the entertainment team, groups by age. Air-conditioned room, TV, Wi-Fi, shaded outdoor play area.",kids_time:"4–12 years · 10:00–17:00",kids_babysitting:"Babysitting on reservation, at extra charge, 18:00–00:00",teen_title:"Teen Program",teen_desc:"Dedicated program during summer school holidays: activities, sports, tournaments, Wi-Fi throughout the hotel.",teen_time:"13–16 years · Summer holidays",well_overline:"Relaxation",well_title:"Wellness & Leisure",well_spa_desc:"Hammam, massages, beauty treatments, cure packages, hairdresser — about 8 cabins. On site.",well_golf_desc:"27 holes, 3 courses of 9 holes. 15 km from the hotel (≈10 min by taxi).",well_services:"Services",well_services_desc:"👨‍⚕️ Doctor on demand 24/7 · 💊 Infirmary · 🧺 Laundry · 🛍️ Shops · 📸 Photographer",prac_overline:"Your comfort",prac_title:"Practical Info",prac_room:"Your room",prac_room_desc:"Empty mini-bar, safe, hairdryer, 32\" flat-screen TV, free Wi-Fi — all included.",prac_climate:"Air conditioning & heating",prac_climate_desc:"AC: June 1–Sept 30 · Heating: Dec 1–Mar 31.",prac_wifi:"Free Wi-Fi",prac_wifi_desc:"Throughout the hotel, rooms included.",prac_atm:"ATM",prac_atm_desc:"Cash machine in the reception hall.",prac_tv:"Satellite TV",prac_tv_desc:"+50 international satellite channels.",prac_arrival:"Arrival",prac_arrival_desc:"Water and refreshing towels offered on arrival.",contact_overline:"Find us",contact_title:"Contact",contact_address_title:"Address",contact_phone_title:"Phone",contact_email_title:"Reservations",contact_web_title:"Website",footer_credit:"Digital guide designed by OmarSoft for Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — content to be validated with the hotel"},
+de:{nav_restaurants:"Restaurants",nav_bars:"Bars",nav_activities:"Aktivitäten",nav_wellness:"Wellness",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_welcome:"Willkommen im",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Aufenthaltsguide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer & Suiten",hero_gallery:"🖼️ Fotogalerie",hero_guide:"📖 Vollständiger Guide",qi_restaurants:"Restaurants",qi_restaurants_desc:"Hauptbuffet, Strandrestaurant & 24/7 Snacking",qi_bars:"Bars & Getränke",qi_bars_desc:"4 Bars, Cocktails, maurisches Café — Getränke inkl. 10–24 Uhr",qi_activities:"Sport & Aktivitäten",qi_activities_desc:"Tennis, Aquagym, Kids Club, Shows & mehr",qi_wellness:"Wellness",qi_wellness_desc:"Spa, Hammam, Massagen & Djerba Golf Club",resto_overline:"Geschmäcker der Welt",resto_title:"Restaurants",resto_subtitle:"Alle Mahlzeiten und Snacks sind in Ihrem Ultra All Inclusive Paket enthalten.",resto_breakfast:"Frühstück",resto_breakfast_time:"06:00 – 10:00 · Täglich",resto_breakfast_desc:"Buffet im Hauptrestaurant, Show Cooking ab 8 Uhr. Spätes Frühstück: Lobby Bar, 10:00–11:00.",resto_lunch:"Mittagessen « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 Tage/Woche",resto_lunch_desc:"Buffet im Hauptrestaurant, klimatisierter Raum + Poolterrasse. Frische Getränke und lokale tunesische Weine inklusive.",resto_dinner:"Abendessen « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 Tage/Woche",resto_dinner_desc:"Buffet im Hauptrestaurant, 3 Themenabende pro Woche. Gepflegte Kleidung erforderlich.",day_mon:"Montag",day_wed:"Mittwoch",day_fri:"Freitag",day_sat:"Samstag",theme_italian:"🇮 Italienisch",theme_oriental:"🌙 Orientalisch",theme_med:"🫒 Mediterran",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · Mitte Mai bis Okt",resto_coco_desc:"Strandnahe Pergola. Wechselnde Menüs: tunesisch, mediterran, italienisch, Fischermenü.",resto_snack:"Snacking & Imbiss",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"Sandwiches, Gebäck, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"Crêpes, 15:00–17:00",snack_apero:"Apéro Time",snack_apero_desc:"Chips, Oliven, Popcorn, 17:00–19:00",badge_included:"Inklusive",badge_winter:"Winter 12:30–14:00",badge_summer:"Sommer 12:30–14:30",badge_reservation:"Reservierung empfohlen",bars_overline:"Cocktails & Atmosphäre",bars_title:"Bars & Getränke",bars_subtitle:"Heiße und kalte Getränke 24/7 inklusive. Lokale alkoholische Getränke von 10:00 bis 00:00 inklusive.",bar_lobby:"Lobby Bar",bar_lobby_hours:"24/7 geöffnet",bar_pool:"Pool Bar",bar_pool_summer:"Sommer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_beach:"Strand Bar",bar_beach_hours:"10:00 – 19:00 · Mai–Okt",bar_cafe:"Maurisches Café",bar_cafe_hours:"16:00 – 00:00",bar_cocktail:"Cocktail-Tisch",bar_cocktail_name:"Lobby Bar Terrasse",bar_cocktail_hours:"Tägliche Cocktails · 19:00–23:00 · Mitte Mai bis Okt",bar_show:"Unterhaltung & Abend",bar_show_name:"Shows & Disco",bar_show_winter:"Winter: 21:30–23:00",bar_show_summer:"Sommer: 22:00–23:30",bar_note_title:"️ Bitte beachten:",bar_note_text:"Das tunesische Gesetz verbietet den Alkoholausschank an Personen unter 18 Jahren. Von Mitternacht bis 10:00 Uhr sind alkoholische Getränke kostenpflichtig. Shisha, italienischer Espresso und importierte Spirituosen sind gegen Aufpreis.",act_overline:"Spaß & Entspannung",act_title:"Sport & Aktivitäten",act_subtitle:"Mehrsprachiges Animationsprogramm, je nach Hotelbelegung und Wetter.",act_tennis:"Tennis (6 Plätze)",act_pool:"Beheizter Pool",act_volley:"Beachvolleyball",act_golf:"Minigolf",act_aqua:"Aquagym",act_show:"Shows",act_games:"Gesellschaftsspiele",act_watersports:"Wassersport",kids_title:"Kids Club",kids_desc:"Betreut vom Animationsteam, Gruppen nach Alter. Klimatisierter Raum, TV, WLAN, schattiger Outdoor-Spielbereich.",kids_time:"4–12 Jahre · 10:00–17:00",kids_babysitting:"Babysitting auf Reservierung, gegen Aufpreis, 18:00–00:00",teen_title:"Teen-Programm",teen_desc:"Spezielles Programm während der Sommerferien: Aktivitäten, Sport, Turniere, WLAN im gesamten Hotel.",teen_time:"13–16 Jahre · Sommerferien",well_overline:"Entspannung",well_title:"Wellness & Freizeit",well_spa_desc:"Hammam, Massagen, Schönheitsbehandlungen, Kurpakete, Friseur — ca. 8 Kabinen. Vor Ort.",well_golf_desc:"27 Löcher, 3 Kurse mit je 9 Löchern. 15 km vom Hotel entfernt (≈10 Min. mit dem Taxi).",well_services:"Services",well_services_desc:"👨‍⚕️ Arzt auf Abruf 24/7 · 💊 Krankenstation · 🧺 Wäscherei · ️ Geschäfte · 📸 Fotograf",prac_overline:"Ihr Komfort",prac_title:"Praktische Infos",prac_room:"Ihr Zimmer",prac_room_desc:"Leere Minibar, Safe, Haartrockner, 32\" Flachbild-TV, kostenloses WLAN — alles inklusive.",prac_climate:"Klimaanlage & Heizung",prac_climate_desc:"Klima: 1. Juni–30. Sept · Heizung: 1. Dez–31. März.",prac_wifi:"Kostenloses WLAN",prac_wifi_desc:"Im gesamten Hotel, Zimmer inklusive.",prac_atm:"Geldautomat",prac_atm_desc:"Geldautomat in der Empfangshalle.",prac_tv:"Satelliten-TV",prac_tv_desc:"+50 internationale Satellitenkanäle.",prac_arrival:"Ankunft",prac_arrival_desc:"Wasser und erfrischende Handtücher bei der Ankunft.",contact_overline:"Uns finden",contact_title:"Kontakt",contact_address_title:"Adresse",contact_phone_title:"Telefon",contact_email_title:"Reservierungen",contact_web_title:"Webseite",footer_credit:"Digitaler Guide erstellt von OmarSoft für Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — Inhalt vor der endgültigen Veröffentlichung mit dem Hotel zu validieren"}
 };
 
-// Language
+// LANGUAGE
 let currentLang='fr';
-const detectLang=()=>{const l=navigator.language.split('-')[0];return(['en','de'].includes(l))?l:'fr';};
+const detectLang=()=>{const l=(navigator.language||'fr').split('-')[0];return(['en','de'].includes(l))?l:'fr';};
 const setLanguage=(lang)=>{
 currentLang=lang;document.documentElement.lang=lang;
 document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -337,101 +441,22 @@ localStorage.setItem('hari_lang',lang);
 setLanguage(localStorage.getItem('hari_lang')||detectLang());
 document.querySelectorAll('.lang-flag').forEach(f=>f.addEventListener('click',()=>setLanguage(f.dataset.lang)));
 
-// Hamburger
-document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('active'));
+// NAVBAR SCROLL
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>80));
 
-// 3D Slideshow
-const slides=document.querySelectorAll('.slide');
-let currentSlide=0;
-const nextSlide=()=>{
-slides[currentSlide].classList.remove('active');
-currentSlide=(currentSlide+1)%slides.length;
-slides[currentSlide].classList.add('active');
-};
-setInterval(nextSlide,6000);
+// HAMBURGER
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
 
-// Create particles
-for(let i=1;i<=5;i++){
-const container=document.getElementById(`particles${i}`);
-if(container){
-for(let j=0;j<20;j++){
-const particle=document.createElement('div');
-particle.className='particle';
-particle.style.left=Math.random()*100+'%';
-particle.style.top=Math.random()*100+'%';
-particle.style.animationDelay=Math.random()*15+'s';
-particle.style.animationDuration=(10+Math.random()*10)+'s';
-container.appendChild(particle);
-}
-}
-}
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-// Gallery
-const galleryItems=Array.from(document.querySelectorAll('.gallery-item'));
-const filterBtns=document.querySelectorAll('.filter-btn');
-filterBtns.forEach(btn=>{
-btn.addEventListener('click',()=>{
-filterBtns.forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-const filter=btn.dataset.filter;
-galleryItems.forEach(item=>{
-if(filter==='all'||item.dataset.category===filter){item.style.display='';setTimeout(()=>{item.style.opacity='1';item.style.transform='scale(1)';},50);}
-else{item.style.opacity='0';item.style.transform='scale(0.8)';setTimeout(()=>item.style.display='none',350);}
-});
-});
-});
-
-// Lightbox
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=document.getElementById('lightboxImg');
-const lightboxCounter=document.getElementById('lightboxCounter');
-const lightboxThumbs=document.getElementById('lightboxThumbs');
-let currentIndex=0,visibleImages=[...galleryItems];
-
-const openLightbox=(index)=>{
-currentIndex=index;
-lightboxImg.src=visibleImages[currentIndex].dataset.src;
-lightboxCounter.textContent=`${currentIndex+1}/${visibleImages.length}`;
-lightbox.classList.add('active');
-document.body.style.overflow='hidden';
-updateThumbs();
-};
-
-const updateThumbs=()=>{
-lightboxThumbs.innerHTML='';
-visibleImages.forEach((item,i)=>{
-const thumb=document.createElement('div');
-thumb.className='thumb'+(i===currentIndex?' active':'');
-thumb.innerHTML=`<img src="${item.dataset.src}" alt="">`;
-thumb.addEventListener('click',()=>{currentIndex=i;openLightbox(i);});
-lightboxThumbs.appendChild(thumb);
-});
-};
-
-const closeLightbox=()=>{lightbox.classList.remove('active');document.body.style.overflow='';};
-const nextImg=()=>{currentIndex=(currentIndex+1)%visibleImages.length;openLightbox(currentIndex);};
-const prevImg=()=>{currentIndex=(currentIndex-1+visibleImages.length)%visibleImages.length;openLightbox(currentIndex);};
-
-galleryItems.forEach((item,i)=>item.addEventListener('click',()=>openLightbox(i)));
-document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
-document.getElementById('lightboxNext').addEventListener('click',nextImg);
-document.getElementById('lightboxPrev').addEventListener('click',prevImg);
-lightbox.addEventListener('click',(e)=>{if(e.target===lightbox)closeLightbox();});
-document.addEventListener('keydown',(e)=>{
-if(!lightbox.classList.contains('active'))return;
-if(e.key==='Escape')closeLightbox();
-if(e.key==='ArrowRight')nextImg();
-if(e.key==='ArrowLeft')prevImg();
-});
-
-document.getElementById('fabGallery').addEventListener('click',()=>document.getElementById('galerie').scrollIntoView({behavior:'smooth'}));
-
-// Navbar scroll effect
-window.addEventListener('scroll',()=>{
-const navbar=document.querySelector('.navbar');
-if(window.scrollY>100){navbar.style.background='rgba(255,255,255,0.98)';navbar.style.boxShadow='0 2px 20px rgba(0,0,0,0.1)';}
-else{navbar.style.background='rgba(255,255,255,0.95)';navbar.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)';}
-});
+// FAB GALLERY
+document.getElementById('fabGallery').addEventListener('click',()=>window.location.href='galerie.html');
 </script>
 
 </body>
