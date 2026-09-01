@@ -180,53 +180,15 @@ section{padding:4rem 1.5rem}
 .fab-gallery img{width:100%;height:100%;object-fit:cover}
 @keyframes pulse{0%,100%{box-shadow:0 8px 25px rgba(247,127,0,.4)}50%{box-shadow:0 8px 25px rgba(247,127,0,.4),0 0 0 12px rgba(247,127,0,.1)}}
 
-/* MUSIC CONTROL */
-.music-control{position:fixed;bottom:1.5rem;right:9rem;width:50px;height:50px;background:rgba(0,119,182,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;box-shadow:0 4px 15px rgba(0,0,0,.3);z-index:999;transition:all .35s;border:none;cursor:pointer}
-.music-control:hover{background:rgba(0,119,182,1);transform:scale(1.1)}
-.music-control.muted{background:rgba(108,117,125,.9)}
 
 /* ANIMATIONS */
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-.navbar{padding:.6rem .5rem}
-.nav-logo{font-size:1.5rem}
-.nav-links{gap:.1rem;margin:0 .5rem}
-.nav-links a{font-size:.7rem;padding:.35rem .45rem}
-.lang-flag{width:22px;height:15px}
-.hero{padding-top:60px}
-.hero-features{flex-direction:column;align-items:center}
-section{padding:3rem 1rem}
-.resto-grid,.bars-grid,.wellness-grid,.contact-grid{grid-template-columns:1fr}
-.info-grid,.practical-grid{grid-template-columns:repeat(2,1fr)}
-.activity-grid{grid-template-columns:repeat(3,1fr)}
-.kids-section,.pools-section{grid-template-columns:1fr}
-.fab-gallery{width:60px;height:60px;right:1.5rem}
-.music-control{right:7.5rem;width:45px;height:45px}
-.infirmary-emergency .phone{font-size:1.5rem}
-}
-@media(max-width:480px){
-.nav-links a{font-size:.65rem;padding:.3rem .4rem}
-.info-grid,.practical-grid{grid-template-columns:1fr}
-.activity-grid{grid-template-columns:repeat(2,1fr)}
-.fab-gallery{width:55px;height:55px}
-.music-control{right:6.5rem;width:40px;height:40px}
 }
 </style>
 </head>
 <body>
-
-<!-- AUDIO MUSIC -->
-<audio id="bgMusic" loop autoplay>
-  <source src="music/djerba-tourism.mp3" type="audio/mpeg">
-  <source src="music/djerba-tourism.ogg" type="audio/ogg">
-</audio>
-
-<!-- MUSIC CONTROL BUTTON -->
-<button class="music-control" id="musicToggle" title="Activer/Désactiver la musique" aria-label="Contrôle musique">🔊</button>
-
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <a href="#" class="nav-logo">Hari <span>Club</span></a>
@@ -679,37 +641,6 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
 document.getElementById('fabGallery').addEventListener('click',()=>window.location.href='galerie.html');
 
-// MUSIC CONTROL
-const bgMusic=document.getElementById('bgMusic');
-const musicToggle=document.getElementById('musicToggle');
-let isPlaying=true;
-
-// Try to autoplay music
-window.addEventListener('load',()=>{
-bgMusic.play().then(()=>{
-musicToggle.textContent='🔊';
-musicToggle.classList.remove('muted');
-}).catch(e=>{
-console.log('Autoplay prevented by browser');
-musicToggle.textContent='🔇';
-musicToggle.classList.add('muted');
-bgMusic.muted=true;
-isPlaying=false;
-});
-});
-
-musicToggle.addEventListener('click',()=>{
-if(isPlaying){
-bgMusic.pause();
-musicToggle.textContent='🔇';
-musicToggle.classList.add('muted');
-}else{
-bgMusic.play();
-musicToggle.textContent='';
-musicToggle.classList.remove('muted');
-}
-isPlaying=!isPlaying;
-});
 </script>
 
 </body>
