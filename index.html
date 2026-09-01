@@ -51,7 +51,7 @@ section{padding:4rem 1.5rem}
 .section-header p{color:#666;max-width:600px;margin:0 auto;font-size:1rem}
 .section-divider{width:60px;height:4px;background:linear-gradient(90deg,#0077b6,#f77f00);border-radius:2px;margin:1rem auto}
 
-/* QUICK INFO - ORDRE SPÉCIFIQUE */
+/* QUICK INFO */
 .quick-info{background:#fff}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem}
 .info-card{background:linear-gradient(135deg,#f8f9fa,#fff);border:1px solid #e9ecef;border-radius:16px;padding:1.8rem 1.2rem;text-align:center;transition:all .35s;position:relative;overflow:hidden}
@@ -95,7 +95,43 @@ section{padding:4rem 1.5rem}
 .bar-card .bar-hours span{display:block;color:#90e0ef;font-weight:600;font-size:.75rem;margin-top:.2rem}
 .bar-note{background:rgba(247,127,0,.15);border-left:4px solid #f77f00;border-radius:10px;padding:1rem 1.3rem;margin-top:2rem;font-size:.85rem;color:rgba(255,255,255,.9);position:relative;z-index:1}
 
-/* ACTIVITIES */
+/* POOLS */
+.pools-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.pool-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 10px 40px rgba(0,0,0,.1);position:relative;overflow:hidden;border-left:5px solid #0077b6}
+.pool-card .pool-icon{font-size:2.5rem;margin-bottom:.8rem}
+.pool-card h3{font-family:'Great Vibes',cursive;font-size:1.8rem;color:#0077b6;margin-bottom:.4rem;font-weight:400}
+.pool-card p{color:#666;font-size:.85rem}
+
+/* SPA */
+.wellness{background:#fff}
+.wellness-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.wellness-card{border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1);transition:all .35s}
+.wellness-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.wellness-card-img{height:180px;background:linear-gradient(135deg,#90e0ef,#0077b6);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.wellness-card-body{padding:1.3rem}
+.wellness-card-body h3{font-family:'Great Vibes',cursive;font-size:2rem;color:#0077b6;margin-bottom:.4rem;font-weight:400}
+.wellness-card-body p{color:#666;font-size:.85rem}
+
+/* INFIRMARY - NOUVEAU */
+.infirmary{background:linear-gradient(135deg,#fff5f5,#ffe0e0);position:relative;overflow:hidden}
+.infirmary::before{content:'';position:absolute;top:-50%;left:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(220,53,69,.1),transparent);border-radius:50%}
+.infirmary-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:0 15px 50px rgba(220,53,69,.15);border-top:5px solid #dc3545;position:relative;z-index:1}
+.infirmary-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.infirmary-header .med-icon{font-size:3rem}
+.infirmary-header h3{font-family:'Great Vibes',cursive;font-size:2.2rem;color:#dc3545;font-weight:400}
+.infirmary-emergency{background:#dc3545;color:#fff;padding:1rem 1.5rem;border-radius:12px;text-align:center;margin-bottom:1.5rem;animation:pulseEmergency 2s infinite}
+@keyframes pulseEmergency{0%,100%{box-shadow:0 0 0 0 rgba(220,53,69,.4)}50%{box-shadow:0 0 0 15px rgba(220,53,69,0)}}
+.infirmary-emergency .label{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.3rem}
+.infirmary-emergency .phone{font-family:'Great Vibes',cursive;font-size:2rem;font-weight:400}
+.infirmary-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem}
+.infirmary-feature{background:#f8f9fa;padding:1rem;border-radius:10px;border-left:3px solid #dc3545}
+.infirmary-feature .feat-icon{font-size:1.3rem;margin-bottom:.3rem}
+.infirmary-feature h4{font-size:.9rem;color:#1a1a2e;margin-bottom:.3rem}
+.infirmary-feature p{font-size:.8rem;color:#666}
+.infirmary-whatsapp{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all .3s}
+.infirmary-whatsapp:hover{background:#128C7E;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.4)}
+
+/* ANIMATION */
 .activities{background:linear-gradient(135deg,#e8f4f8,#f0f9ff)}
 .activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem}
 .activity-item{background:#fff;border-radius:16px;padding:1.3rem .8rem;text-align:center;transition:all .35s;box-shadow:0 4px 15px rgba(0,0,0,.06)}
@@ -112,23 +148,6 @@ section{padding:4rem 1.5rem}
 .kids-card h3{font-family:'Great Vibes',cursive;font-size:2rem;color:#0077b6;margin-bottom:.4rem;font-weight:400}
 .kids-card p{color:#666;font-size:.85rem;margin-bottom:.6rem}
 .kids-card .kids-time{display:inline-block;background:#90e0ef;color:#023e8a;padding:.25rem .7rem;border-radius:50px;font-size:.75rem;font-weight:600}
-
-/* POOLS */
-.pools-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
-.pool-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 10px 40px rgba(0,0,0,.1);position:relative;overflow:hidden;border-left:5px solid #0077b6}
-.pool-card .pool-icon{font-size:2.5rem;margin-bottom:.8rem}
-.pool-card h3{font-family:'Great Vibes',cursive;font-size:1.8rem;color:#0077b6;margin-bottom:.4rem;font-weight:400}
-.pool-card p{color:#666;font-size:.85rem}
-
-/* WELLNESS */
-.wellness{background:#fff}
-.wellness-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-.wellness-card{border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.1);transition:all .35s}
-.wellness-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
-.wellness-card-img{height:180px;background:linear-gradient(135deg,#90e0ef,#0077b6);display:flex;align-items:center;justify-content:center;font-size:3.5rem}
-.wellness-card-body{padding:1.3rem}
-.wellness-card-body h3{font-family:'Great Vibes',cursive;font-size:2rem;color:#0077b6;margin-bottom:.4rem;font-weight:400}
-.wellness-card-body p{color:#666;font-size:.85rem}
 
 /* PRACTICAL */
 .practical{background:linear-gradient(135deg,#fff9e6,#fff3cd)}
@@ -179,6 +198,7 @@ section{padding:3rem 1rem}
 .activity-grid{grid-template-columns:repeat(3,1fr)}
 .kids-section,.pools-section{grid-template-columns:1fr}
 .fab-gallery{width:50px;height:50px;font-size:1.3rem}
+.infirmary-emergency .phone{font-size:1.5rem}
 }
 @media(max-width:480px){
 .nav-links a{font-size:.65rem;padding:.3rem .4rem}
@@ -197,6 +217,7 @@ section{padding:3rem 1rem}
     <a href="#restaurants" data-i18n="nav_restaurants">Restaurants</a>
     <a href="#bars" data-i18n="nav_bars">Bars</a>
     <a href="#spa" data-i18n="nav_spa">SPA</a>
+    <a href="#infirmary" data-i18n="nav_infirmary">Infirmerie</a>
     <a href="#animation" data-i18n="nav_animation">Animation</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
@@ -223,9 +244,9 @@ section{padding:3rem 1rem}
     <h1 class="hero-title" data-i18n="hero_title">Hari Club Beach Resort</h1>
     <p class="hero-subtitle" data-i18n="hero_subtitle">Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.</p>
     <div class="hero-features">
-      <div class="hero-feature"><span></span><span data-i18n="hero_wifi">Wi-Fi gratuit</span></div>
-      <div class="hero-feature"><span>️</span><span data-i18n="hero_beach">Plage privée 400 m</span></div>
-      <div class="hero-feature"><span>🛏️</span><span data-i18n="hero_rooms">212 chambres & suites</span></div>
+      <div class="hero-feature"><span>📶</span><span data-i18n="hero_wifi">Wi-Fi gratuit</span></div>
+      <div class="hero-feature"><span>🏖️</span><span data-i18n="hero_beach">Plage privée 400 m</span></div>
+      <div class="hero-feature"><span>️</span><span data-i18n="hero_rooms">212 chambres, bungalows & suites</span></div>
     </div>
     <div class="hero-buttons">
       <a href="galerie.html" class="btn btn-primary" data-i18n="hero_gallery">🖼️ Galerie photos</a>
@@ -234,7 +255,7 @@ section{padding:3rem 1rem}
   </div>
 </section>
 
-<!-- QUICK INFO - ORDRE SPÉCIFIQUE -->
+<!-- QUICK INFO -->
 <section class="quick-info" id="reception">
   <div class="container">
     <div class="section-header fade-in">
@@ -243,12 +264,14 @@ section{padding:3rem 1rem}
       <div class="section-divider"></div>
     </div>
     <div class="info-grid">
-      <div class="info-card fade-in"><div class="card-icon">🛎️</div><h3 data-i18n="qi_reception">Réception</h3><p data-i18n="qi_reception_desc">24h/24 · 7j/7</p></div>
-      <div class="info-card fade-in"><div class="card-icon">🍽️</div><h3 data-i18n="qi_restaurants">Restaurants</h3><p data-i18n="qi_restaurants_desc">Coco de Mer & buffet principal</p></div>
-      <div class="info-card fade-in"><div class="card-icon"></div><h3 data-i18n="qi_bars">Bars & Café Maure</h3><p data-i18n="qi_bars_desc">Marquis, Mac Hari, La Kasbah, Buvette plage</p></div>
-      <div class="info-card fade-in"><div class="card-icon">💆</div><h3 data-i18n="qi_spa">SPA</h3><p data-i18n="qi_spa_desc">7j/7 · Hammam, massages, soins</p></div>
-      <div class="info-card fade-in"><div class="card-icon">🎭</div><h3 data-i18n="qi_animation">Animation</h3><p data-i18n="qi_animation_desc">7j/7 · Spectacles & soirées</p></div>
-      <div class="info-card fade-in"><div class="card-icon"></div><h3 data-i18n="qi_pools">Piscines</h3><p data-i18n="qi_pools_desc">Chauffée couverte + plein air + pataugeoire</p></div>
+      <div class="info-card fade-in"><div class="card-icon">️</div><h3 data-i18n="qi_reception">Réception</h3><p data-i18n="qi_reception_desc">24h/24 · 7j/7 · Depuis chambre : composez le 9</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🍽️</div><h3 data-i18n="qi_restaurants">Restaurants</h3><p data-i18n="qi_restaurants_desc">Buffet principal, Coco de Mer, Pool Snacks, Berber Tent</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🍹</div><h3 data-i18n="qi_bars">5 Bars</h3><p data-i18n="qi_bars_desc">Lobby, Pool, Beach, Café Maure, Discothèque</p></div>
+      <div class="info-card fade-in"><div class="card-icon">💆</div><h3 data-i18n="qi_spa">SPA</h3><p data-i18n="qi_spa_desc">7j/7 · Hammam, massages, soins beauté</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🏥</div><h3 data-i18n="qi_infirmary">Infirmerie</h3><p data-i18n="qi_infirmary_desc">Médecin sur place 24/7 · Assurance voyage acceptée</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🎭</div><h3 data-i18n="qi_animation">Animation</h3><p data-i18n="qi_animation_desc">7j/7 · Spectacles & soirées à thème</p></div>
+      <div class="info-card fade-in"><div class="card-icon"></div><h3 data-i18n="qi_pools">2 Piscines</h3><p data-i18n="qi_pools_desc">Plein air + Intérieure chauffée</p></div>
+      <div class="info-card fade-in"><div class="card-icon">🎈</div><h3 data-i18n="qi_kids">Mini Club</h3><p data-i18n="qi_kids_desc">Vacances scolaires · 10h-17h · 6j/7</p></div>
     </div>
   </div>
 </section>
@@ -264,7 +287,7 @@ section{padding:3rem 1rem}
     </div>
     <div class="resto-grid">
       <div class="resto-card fade-in">
-        <div class="resto-card-header"><div class="resto-icon">🌅</div><h3 data-i18n="resto_breakfast">Petit-déjeuner</h3><div class="resto-time" data-i18n="resto_breakfast_time">06:00 – 10:00 · Tous les jours</div></div>
+        <div class="resto-card-header"><div class="resto-icon"></div><h3 data-i18n="resto_breakfast">Petit-déjeuner</h3><div class="resto-time" data-i18n="resto_breakfast_time">06:00 – 10:00 · Tous les jours</div></div>
         <div class="resto-card-body"><p data-i18n="resto_breakfast_desc">Buffet au restaurant principal, show cooking dès 8h. Petit-déjeuner tardif : Lobby Bar, 10:00–11:00.</p><span class="badge" data-i18n="badge_included">Inclus</span></div>
       </div>
       <div class="resto-card fade-in">
@@ -277,14 +300,14 @@ section{padding:3rem 1rem}
           <p data-i18n="resto_dinner_desc">Buffet au restaurant principal, 3 soirées à thème par semaine. Tenue correcte exigée.</p>
           <ul class="theme-list">
             <li><span class="day" data-i18n="day_mon">Lundi</span><span data-i18n="theme_italian">🇮🇹 Italien</span></li>
-            <li><span class="day" data-i18n="day_wed">Mercredi</span><span data-i18n="theme_oriental">🌙 Oriental</span></li>
+            <li><span class="day" data-i18n="day_wed">Mercredi</span><span data-i18n="theme_oriental"> Oriental</span></li>
             <li><span class="day" data-i18n="day_fri">Vendredi</span><span data-i18n="theme_med">🫒 Méditerranéen</span></li>
             <li><span class="day" data-i18n="day_sat">Samedi</span><span data-i18n="theme_intl">🌍 International</span></li>
           </ul>
         </div>
       </div>
       <div class="resto-card fade-in">
-        <div class="resto-card-header" style="background:linear-gradient(135deg,#00b4d8,#0077b6)"><div class="resto-icon">🌴</div><h3 data-i18n="resto_coco">Le Coco de Mer</h3><div class="resto-time" data-i18n="resto_coco_time">19:00–21:30 · mi-mai à oct · 3–4 soirs/sem</div></div>
+        <div class="resto-card-header" style="background:linear-gradient(135deg,#00b4d8,#0077b6)"><div class="resto-icon"></div><h3 data-i18n="resto_coco">Le Coco de Mer</h3><div class="resto-time" data-i18n="resto_coco_time">19:00–21:30 · mi-mai à oct · 3–4 soirs/sem</div></div>
         <div class="resto-card-body"><p data-i18n="resto_coco_desc">Pergola en bord de plage. Menus en rotation : tunisienne & orientale, méditerranéenne, italienne, menu du pêcheur.</p><span class="badge accent" data-i18n="badge_reservation">Réservation conseillée</span></div>
       </div>
       <div class="resto-card fade-in">
@@ -304,7 +327,7 @@ section{padding:3rem 1rem}
   <div class="container">
     <div class="section-header fade-in">
       <span class="overline" style="color:#fcbf49" data-i18n="bars_overline">Cocktails & ambiance</span>
-      <h2 data-i18n="bars_title">Bars & Café Maure</h2>
+      <h2 data-i18n="bars_title">5 Bars & Café Maure</h2>
       <div class="section-divider"></div>
       <p data-i18n="bars_subtitle">Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.</p>
     </div>
@@ -335,7 +358,7 @@ section{padding:3rem 1rem}
         </div>
       </div>
       <div class="bar-card fade-in">
-        <div class="bar-icon">🏖️</div>
+        <div class="bar-icon">️</div>
         <h3 data-i18n="bar_beach">La Cabane</h3>
         <div class="bar-name" data-i18n="bar_beach_name">Buvette Plage</div>
         <div class="bar-hours">
@@ -344,18 +367,27 @@ section{padding:3rem 1rem}
         </div>
       </div>
       <div class="bar-card fade-in">
-        <div class="bar-icon">🍹</div>
+        <div class="bar-icon">🎵</div>
+        <h3 data-i18n="bar_disco">Discothèque</h3>
+        <div class="bar-name" data-i18n="bar_disco_name">Soirées & spectacles</div>
+        <div class="bar-hours">
+          <span data-i18n="bar_disco_hours">Spectacle + disco</span>
+          <span data-i18n="bar_disco_days">7j/7</span>
+        </div>
+      </div>
+      <div class="bar-card fade-in">
+        <div class="bar-icon"></div>
         <h3 data-i18n="bar_cocktail">Table à cocktails</h3>
         <div class="bar-name" data-i18n="bar_cocktail_name">Terrasse du Lobby Bar</div>
         <div class="bar-hours">
-          <span data-i18n="bar_cocktail_hours">Cocktails du jour, avec ou sans alcool · 19:00–23:00</span>
+          <span data-i18n="bar_cocktail_hours">Cocktails du jour · 19:00–23:00</span>
           <span data-i18n="bar_cocktail_season">De Mai à Juin (selon conditions climatiques)</span>
         </div>
       </div>
     </div>
     <div class="bar-note fade-in">
       <strong data-i18n="bar_note_title">ℹ️ À savoir :</strong>
-      <span data-i18n="bar_note_text">La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes dans tous les bars. Chicha, café espresso italien et alcools importés sont également en supplément.</span>
+      <span data-i18n="bar_note_text">La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes. Chicha, café espresso italien et alcools importés sont en supplément.</span>
     </div>
   </div>
 </section>
@@ -365,18 +397,18 @@ section{padding:3rem 1rem}
   <div class="container">
     <div class="section-header fade-in">
       <span class="overline" data-i18n="pools_overline">Détente aquatique</span>
-      <h2 data-i18n="pools_title">Piscines</h2>
+      <h2 data-i18n="pools_title">2 Piscines</h2>
       <div class="section-divider"></div>
     </div>
     <div class="pools-section">
       <div class="pool-card fade-in">
         <div class="pool-icon">🏊</div>
-        <h3 data-i18n="pool_indoor">Piscine chauffée couverte</h3>
+        <h3 data-i18n="pool_indoor">Piscine intérieure chauffée</h3>
         <p data-i18n="pool_indoor_desc">Ouverte en hiver · 7j/7 · Idéale pour la saison froide</p>
       </div>
       <div class="pool-card fade-in" style="border-left-color:#f77f00">
         <div class="pool-icon">☀️</div>
-        <h3 data-i18n="pool_outdoor">Piscine en plein air</h3>
+        <h3 data-i18n="pool_outdoor">Piscine principale en plein air</h3>
         <p data-i18n="pool_outdoor_desc">Grande piscine extérieure avec terrasse · Ouverte en été</p>
       </div>
       <div class="pool-card fade-in" style="border-left-color:#52b788">
@@ -416,8 +448,58 @@ section{padding:3rem 1rem}
         <div class="wellness-card-img" style="background:linear-gradient(135deg,#e76f51,#f4a261)">🛎️</div>
         <div class="wellness-card-body">
           <h3 data-i18n="services_title">Services</h3>
-          <p data-i18n="services_desc">👨‍⚕️ Médecin 24/24 ·  Infirmerie · 🧺 Blanchisserie · 🛍️ Boutiques · 📸 Photographe</p>
+          <p data-i18n="services_desc">👨‍⚕️ Médecin 24/24 ·  Infirmerie · 🧺 Blanchisserie · 🛍️ The Gallery boutiques · 📸 Photographe · 🏢 Centre de congrès & salles de réunion</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFIRMARY - NOUVEAU -->
+<section class="infirmary" id="infirmary">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="overline" style="color:#dc3545" data-i18n="inf_overline">Santé & Sécurité</span>
+      <h2 data-i18n="inf_title" style="color:#dc3545">Infirmerie & Assistance Médicale</h2>
+      <div class="section-divider" style="background:linear-gradient(90deg,#dc3545,#ff6b6b)"></div>
+      <p data-i18n="inf_subtitle">Service médical sur place 24h/24 · 7j/7 · Assurance voyage acceptée</p>
+    </div>
+    <div class="infirmary-card fade-in">
+      <div class="infirmary-header">
+        <div class="med-icon">🏥</div>
+        <h3 data-i18n="inf_header">Medical Assistance — Doctor on Call</h3>
+      </div>
+      <div class="infirmary-emergency">
+        <div class="label" data-i18n="inf_emergency_label">🚨 URGENCE MÉDICALE — APPEL 24/7</div>
+        <div class="phone"><a href="tel:+21699311772" style="color:#fff;text-decoration:none">(+216) 99 31 17 72</a></div>
+      </div>
+      <div class="infirmary-features">
+        <div class="infirmary-feature">
+          <div class="feat-icon">👨‍⚕️</div>
+          <h4 data-i18n="inf_feat1_title">Médecin & Infirmier sur place</h4>
+          <p data-i18n="inf_feat1_desc">Service médical 24/7 sur site · Livraison de médicaments incluse</p>
+        </div>
+        <div class="infirmary-feature">
+          <div class="feat-icon">💊</div>
+          <h4 data-i18n="inf_feat2_title">Médicaments livrés sur place</h4>
+          <p data-i18n="inf_feat2_desc">Pharmacie disponible · Consultation remboursable par mutuelle et assurance voyage</p>
+        </div>
+        <div class="infirmary-feature">
+          <div class="feat-icon">📋</div>
+          <h4 data-i18n="inf_feat3_title">Dossier assurance géré</h4>
+          <p data-i18n="inf_feat3_desc">Gratuitement avec rapport médical et facturation conforme · Coordination directe avec assurances internationales</p>
+        </div>
+        <div class="infirmary-feature">
+          <div class="feat-icon">🚑</div>
+          <h4 data-i18n="inf_feat4_title">Ambulance & hospitalisation</h4>
+          <p data-i18n="inf_feat4_desc">Prises en charge par l'assurance selon indication · Cliniques partenaires</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem">
+        <a href="https://wa.me/21699311772" class="infirmary-whatsapp" target="_blank">
+          <span style="font-size:1.3rem">💬</span>
+          <span data-i18n="inf_whatsapp">Contact via WhatsApp — Réponse rapide</span>
+        </a>
       </div>
     </div>
   </div>
@@ -436,11 +518,11 @@ section{padding:3rem 1rem}
       <div class="activity-item fade-in"><div class="act-icon">🎾</div><p data-i18n="act_tennis">Tennis (6 courts)</p></div>
       <div class="activity-item fade-in"><div class="act-icon">🏐</div><p data-i18n="act_volley">Beach-volley</p></div>
       <div class="activity-item fade-in"><div class="act-icon">⛳</div><p data-i18n="act_golf">Mini-golf</p></div>
+      <div class="activity-item fade-in"><div class="act-icon">⚽</div><p data-i18n="act_football">Mini-foot</p></div>
       <div class="activity-item fade-in"><div class="act-icon">🧘</div><p data-i18n="act_aqua">Aquagym</p></div>
       <div class="activity-item fade-in"><div class="act-icon">🎭</div><p data-i18n="act_show">Spectacles</p></div>
       <div class="activity-item fade-in"><div class="act-icon">🎲</div><p data-i18n="act_games">Jeux de société</p></div>
       <div class="activity-item fade-in"><div class="act-icon">🚤</div><p data-i18n="act_watersports">Sports nautiques</p></div>
-      <div class="activity-item fade-in"><div class="act-icon">🎉</div><p data-i18n="act_theme">Soirées à thème</p></div>
     </div>
     <div class="kids-section">
       <div class="kids-card mini fade-in">
@@ -483,11 +565,18 @@ section{padding:3rem 1rem}
       <div class="section-divider"></div>
     </div>
     <div class="practical-grid">
-      <div class="practical-item fade-in"><div class="p-icon">🛏️</div><div><h4 data-i18n="prac_room">Votre chambre</h4><p data-i18n="prac_room_desc">Mini-bar vide, coffre-fort, sèche-cheveux, TV 32", Wi-Fi gratuit — tout inclus.</p></div></div>
+      <div class="practical-item fade-in">
+        <div class="p-icon">🛏️</div>
+        <div>
+          <h4 data-i18n="prac_room">Votre chambre</h4>
+          <p data-i18n="prac_room_desc">Coffre-fort, sèche-cheveux, TV 32" écran plat, Wi-Fi gratuit. Pour appeler la réception, composez le 9.</p>
+        </div>
+      </div>
       <div class="practical-item fade-in"><div class="p-icon">❄️</div><div><h4 data-i18n="prac_climate">Clim & chauffage</h4><p data-i18n="prac_climate_desc">Clim : 1 juin–30 sept · Chauffage : 1 déc–31 mars.</p></div></div>
       <div class="practical-item fade-in"><div class="p-icon">📶</div><div><h4 data-i18n="prac_wifi">Wi-Fi gratuit</h4><p data-i18n="prac_wifi_desc">Partout dans l'hôtel, chambres incluses.</p></div></div>
       <div class="practical-item fade-in"><div class="p-icon">🏧</div><div><h4 data-i18n="prac_atm">DAB</h4><p data-i18n="prac_atm_desc">Distributeur automatique au hall de réception.</p></div></div>
       <div class="practical-item fade-in"><div class="p-icon">📺</div><div><h4 data-i18n="prac_tv">TV Satellite</h4><p data-i18n="prac_tv_desc">+50 chaînes satellite internationales.</p></div></div>
+      <div class="practical-item fade-in"><div class="p-icon"></div><div><h4 data-i18n="prac_congress">Centre de congrès</h4><p data-i18n="prac_congress_desc">Salles de réunion disponibles pour vos événements professionnels.</p></div></div>
     </div>
   </div>
 </section>
@@ -502,8 +591,23 @@ section{padding:3rem 1rem}
     </div>
     <div class="contact-grid">
       <div class="contact-card fade-in"><div class="c-icon"></div><h3 data-i18n="contact_address_title">Adresse</h3><p>Route Touristique Aghir,<br>4116 Djerba Aghir, Tunisie</p></div>
-      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#f77f00,#e36414)"><div class="c-icon">📞</div><h3 data-i18n="contact_phone_title">Téléphone</h3><p><a href="tel:+21675751502">+216 75 751 502</a><br><a href="tel:+21675751503">+216 75 751 503</a><br><a href="tel:+21675751509">+216 75 751 509 (Réception)</a></p></div>
-      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#6a0572,#ab1d6f)"><div class="c-icon">✉️</div><h3 data-i18n="contact_email_title">Réservations</h3><p><a href="mailto:booking@hari-club.com">booking@hari-club.com</a></p></div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#f77f00,#e36414)">
+        <div class="c-icon">📞</div>
+        <h3 data-i18n="contact_phone_title">Téléphone</h3>
+        <p>
+          <a href="tel:+21675751502">+216 75 751 502</a><br>
+          <a href="tel:+21675751503">+216 75 751 503</a><br>
+          <a href="tel:+21675751509">+216 75 751 509 (Réception)</a><br>
+          <small style="opacity:.8" data-i18n="contact_from_room">📱 Depuis la chambre : composez le 9</small>
+        </p>
+      </div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#dc3545,#a71d2a)">
+        <div class="c-icon">🚨</div>
+        <h3 data-i18n="contact_emergency_title">Urgence médicale</h3>
+        <p><a href="tel:+21699311772">+216 99 31 17 72</a><br><small style="opacity:.8" data-i18n="contact_emergency_desc">Médecin sur place 24/7</small></p>
+      </div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#6a0572,#ab1d6f)"><div class="c-icon">️</div><h3 data-i18n="contact_email_title">Réservations</h3><p><a href="mailto:booking@hari-club.com">booking@hari-club.com</a></p></div>
+      <div class="contact-card fade-in" style="background:linear-gradient(135deg,#25D366,#128C7E)"><div class="c-icon">💬</div><h3 data-i18n="contact_sales_title">Ventes & Groupes</h3><p><a href="mailto:sales@ha-hospitality.com">sales@ha-hospitality.com</a><br><a href="tel:+21673277850">+216 73 277 850</a></p></div>
       <div class="contact-card fade-in" style="background:linear-gradient(135deg,#2d6a4f,#40916c)"><div class="c-icon">🌐</div><h3 data-i18n="contact_web_title">Site web</h3><p><a href="https://www.hari-club.com" target="_blank">www.hari-club.com</a></p></div>
     </div>
   </div>
@@ -518,17 +622,15 @@ section{padding:3rem 1rem}
 </footer>
 
 <!-- FAB GALLERY BUTTON -->
-<button class="fab-gallery" id="fabGallery" title="Galerie photos" aria-label="Ouvrir la galerie">🖼️</button>
+<button class="fab-gallery" id="fabGallery" title="Galerie photos" aria-label="Ouvrir la galerie">️</button>
 
 <script>
-// TRANSLATIONS
 const translations={
-fr:{nav_reception:"Réception",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_animation:"Animation",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres & suites",hero_gallery:"🖼️ Galerie photos",hero_guide:"📖 Guide complet",qi_overline:"À votre service",qi_title:"Nos Services",qi_reception:"Réception",qi_reception_desc:"24h/24 · 7j/7",qi_restaurants:"Restaurants",qi_restaurants_desc:"Coco de Mer & buffet principal",qi_bars:"Bars & Café Maure",qi_bars_desc:"Marquis, Mac Hari, La Kasbah, Buvette plage",qi_spa:"SPA",qi_spa_desc:"7j/7 · Hammam, massages, soins",qi_animation:"Animation",qi_animation_desc:"7j/7 · Spectacles & soirées",qi_pools:"Piscines",qi_pools_desc:"Chauffée couverte + plein air + pataugeoire",resto_overline:"Saveurs du monde",resto_title:"Restaurants",resto_subtitle:"Tous les repas et snacks sont inclus dans votre formule Ultra All Inclusive.",resto_breakfast:"Petit-déjeuner",resto_breakfast_time:"06:00 – 10:00 · Tous les jours",resto_breakfast_desc:"Buffet au restaurant principal, show cooking dès 8h. Petit-déjeuner tardif : Lobby Bar, 10:00–11:00.",resto_lunch:"Déjeuner « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7j/7",resto_lunch_desc:"Buffet au restaurant principal, salle climatisée + terrasse piscine. Boissons et vins tunisiens inclus.",resto_dinner:"Dîner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7j/7",resto_dinner_desc:"Buffet au restaurant principal, 3 soirées à thème par semaine. Tenue correcte exigée.",day_mon:"Lundi",day_wed:"Mercredi",day_fri:"Vendredi",day_sat:"Samedi",theme_italian:"🇮🇹 Italien",theme_oriental:"🌙 Oriental",theme_med:"🫒 Méditerranéen",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mi-mai à oct · 3–4 soirs/sem",resto_coco_desc:"Pergola en bord de plage. Menus en rotation : tunisienne & orientale, méditerranéenne, italienne, menu du pêcheur.",resto_snack:"Snacking & en-cas",resto_snack_time:"24/24",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwichs, pâtisseries, 24h/24",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00 (mi-mai à oct)",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, pop-corn, 17:00–19:00",badge_included:"Inclus",badge_winter:"Hiver 12:30–14:00",badge_summer:"Été 12:30–14:30",badge_reservation:"Réservation conseillée",bars_overline:"Cocktails & ambiance",bars_title:"Bars & Café Maure",bars_subtitle:"Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Bar principal",bar_lobby_hours:"7j/7 · 24h/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Été : 10:00 – 00:00",bar_pool_winter:"Hiver : 10:00 – 18:00",bar_pool_days:"6j/7",bar_cafe:"La Kasbah",bar_cafe_name:"Café Maure",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6j/7",bar_beach:"La Cabane",bar_beach_name:"Buvette Plage",bar_beach_hours:"10:00 – 19:00 · mai–oct",bar_beach_days:"7j/7",bar_cocktail:"Table à cocktails",bar_cocktail_name:"Terrasse du Lobby Bar",bar_cocktail_hours:"Cocktails du jour, avec ou sans alcool · 19:00–23:00",bar_cocktail_season:"De Mai à Juin (selon conditions climatiques)",bar_note_title:"ℹ️ À savoir :",bar_note_text:"La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes. Chicha, café espresso italien et alcools importés sont en supplément.",pools_overline:"Détente aquatique",pools_title:"Piscines",pool_indoor:"Piscine chauffée couverte",pool_indoor_desc:"Ouverte en hiver · 7j/7 · Idéale pour la saison froide",pool_outdoor:"Piscine en plein air",pool_outdoor_desc:"Grande piscine extérieure avec terrasse · Ouverte en été",pool_kids:"Pataugeoire",pool_kids_desc:"Espace aquatique dédié aux enfants · Sécurisé et peu profond",spa_overline:"Relaxation",spa_title:"SPA & Bien-être",spa_desc:"Hammam, massages, soins de beauté, forfaits cures, coiffeur — environ 8 cabines. Ouvert 7j/7.",golf_desc:"27 trous, 3 parcours de 9 trous. À 15 km de l'hôtel (≈10 min en taxi).",services_title:"Services",services_desc:"‍⚕️ Médecin 24/24 · 💊 Infirmerie · 🧺 Blanchisserie · 🛍️ Boutiques · 📸 Photographe",anim_overline:"Fun & détente",anim_title:"Animation & Soirées",anim_subtitle:"Programme d'animation multilingue 7j/7, selon l'occupation de l'hôtel et la météo.",act_tennis:"Tennis (6 courts)",act_volley:"Beach-volley",act_golf:"Mini-golf",act_aqua:"Aquagym",act_show:"Spectacles",act_games:"Jeux de société",act_watersports:"Sports nautiques",act_theme:"Soirées à thème",kids_title:"Mini Club",kids_desc:"Encadré par l'équipe d'animation, groupes par âge. Salle climatisée, TV, Wi-Fi, aire de jeux extérieure ombragée.",kids_time:"10:00 – 17:00 · 6j/7",kids_vacances:"Pendant les vacances scolaires",teen_title:"Programme Ados",teen_desc:"Programme dédié pendant les vacances scolaires d'été : activités, sport, tournois, Wi-Fi partout dans l'hôtel.",teen_time:"13–16 ans · Vacances d'été",anim_venue_title:" Lieu des spectacles",anim_winter_title:"❄️ En hiver",anim_winter_desc:"Amphithéâtre intérieur — Spectacle + disco, 21:30–23:00",anim_summer_title:"☀️ En été",anim_summer_desc:"Amphithéâtre (Terrasse Piscine) — Spectacle + disco, 22:00–23:30",anim_theme_note:"Soirées à thème (mousse, pool party...) une fois par semaine",prac_overline:"Votre confort",prac_title:"Infos pratiques",prac_room:"Votre chambre",prac_room_desc:"Mini-bar vide, coffre-fort, sèche-cheveux, TV 32\", Wi-Fi gratuit — tout inclus.",prac_climate:"Clim & chauffage",prac_climate_desc:"Clim : 1 juin–30 sept · Chauffage : 1 déc–31 mars.",prac_wifi:"Wi-Fi gratuit",prac_wifi_desc:"Partout dans l'hôtel, chambres incluses.",prac_atm:"DAB",prac_atm_desc:"Distributeur automatique au hall de réception.",prac_tv:"TV Satellite",prac_tv_desc:"+50 chaînes satellite internationales.",contact_overline:"Nous trouver",contact_title:"Contact",contact_address_title:"Adresse",contact_phone_title:"Téléphone",contact_email_title:"Réservations",contact_web_title:"Site web",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — contenu à valider avec l'hôtel"},
-en:{nav_reception:"Reception",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_animation:"Entertainment",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms & suites",hero_gallery:"🖼️ Photo Gallery",hero_guide:"📖 Full guide",qi_overline:"At your service",qi_title:"Our Services",qi_reception:"Reception",qi_reception_desc:"24/7",qi_restaurants:"Restaurants",qi_restaurants_desc:"Coco de Mer & main buffet",qi_bars:"Bars & Moorish Café",qi_bars_desc:"Marquis, Mac Hari, La Kasbah, Beach Bar",qi_spa:"SPA",qi_spa_desc:"7/7 · Hammam, massages, treatments",qi_animation:"Entertainment",qi_animation_desc:"7/7 · Shows & evening events",qi_pools:"Pools",qi_pools_desc:"Heated indoor + outdoor + paddling pool",resto_overline:"World flavors",resto_title:"Restaurants",resto_subtitle:"All meals and snacks are included in your Ultra All Inclusive package.",resto_breakfast:"Breakfast",resto_breakfast_time:"06:00 – 10:00 · Daily",resto_breakfast_desc:"Buffet at the main restaurant, show cooking from 8am. Late breakfast: Lobby Bar, 10:00–11:00.",resto_lunch:"Lunch « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 days/week",resto_lunch_desc:"Buffet at the main restaurant, air-conditioned room + pool terrace. Drinks and local Tunisian wines included.",resto_dinner:"Dinner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 days/week",resto_dinner_desc:"Buffet at the main restaurant, 3 themed evenings per week. Smart dress code required.",day_mon:"Monday",day_wed:"Wednesday",day_fri:"Friday",day_sat:"Saturday",theme_italian:"🇮🇹 Italian",theme_oriental:"🌙 Oriental",theme_med:"🫒 Mediterranean",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mid-May to Oct · 3–4 nights/week",resto_coco_desc:"Beachside pergola. Rotating menus: Tunisian & Oriental, Mediterranean, Italian, fisherman's menu.",resto_snack:"Snacking & light bites",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwiches, pastries, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00 (mid-May to Oct)",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, popcorn, 17:00–19:00",badge_included:"Included",badge_winter:"Winter 12:30–14:00",badge_summer:"Summer 12:30–14:30",badge_reservation:"Reservation recommended",bars_overline:"Cocktails & atmosphere",bars_title:"Bars & Moorish Café",bars_subtitle:"Hot and cold drinks included 24/7. Local alcoholic drinks included from 10:00 to 00:00.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Main Bar",bar_lobby_hours:"7/7 · 24/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Summer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_pool_days:"6/7",bar_cafe:"La Kasbah",bar_cafe_name:"Moorish Café",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6/7",bar_beach:"La Cabane",bar_beach_name:"Beach Bar",bar_beach_hours:"10:00 – 19:00 · May–Oct",bar_beach_days:"7/7",bar_cocktail:"Cocktail table",bar_cocktail_name:"Lobby Bar terrace",bar_cocktail_hours:"Daily cocktails, with or without alcohol · 19:00–23:00",bar_cocktail_season:"From May to June (weather dependent)",bar_note_title:"ℹ️ Please note:",bar_note_text:"Tunisian law prohibits serving alcohol to persons under 18. From midnight to 10:00, alcoholic drinks are chargeable. Shisha, Italian espresso and imported spirits are at extra charge.",pools_overline:"Water relaxation",pools_title:"Pools",pool_indoor:"Heated indoor pool",pool_indoor_desc:"Open in winter · 7/7 · Ideal for the cold season",pool_outdoor:"Outdoor pool",pool_outdoor_desc:"Large outdoor pool with terrace · Open in summer",pool_kids:"Paddling pool",pool_kids_desc:"Dedicated water area for children · Safe and shallow",spa_overline:"Relaxation",spa_title:"SPA & Wellness",spa_desc:"Hammam, massages, beauty treatments, cure packages, hairdresser — about 8 cabins. Open 7/7.",golf_desc:"27 holes, 3 courses of 9 holes. 15 km from the hotel (≈10 min by taxi).",services_title:"Services",services_desc:"👨‍⚕️ Doctor on demand 24/7 · 💊 Infirmary · 🧺 Laundry · 🛍️ Shops · 📸 Photographer",anim_overline:"Fun & relaxation",anim_title:"Entertainment & Evening Shows",anim_subtitle:"Multilingual entertainment program 7/7, subject to hotel occupancy and weather.",act_tennis:"Tennis (6 courts)",act_volley:"Beach volleyball",act_golf:"Mini-golf",act_aqua:"Aquagym",act_show:"Shows",act_games:"Board games",act_watersports:"Water sports",act_theme:"Theme nights",kids_title:"Kids Club",kids_desc:"Supervised by the entertainment team, groups by age. Air-conditioned room, TV, Wi-Fi, shaded outdoor play area.",kids_time:"10:00 – 17:00 · 6/7",kids_vacances:"During school holidays",teen_title:"Teen Program",teen_desc:"Dedicated program during summer school holidays: activities, sports, tournaments, Wi-Fi throughout the hotel.",teen_time:"13–16 years · Summer holidays",anim_venue_title:"🎭 Show venue",anim_winter_title:"❄️ In winter",anim_winter_desc:"Indoor amphitheater — Show + disco, 21:30–23:00",anim_summer_title:"☀️ In summer",anim_summer_desc:"Amphitheater (Pool Terrace) — Show + disco, 22:00–23:30",anim_theme_note:"Theme nights (foam, pool party...) once a week",prac_overline:"Your comfort",prac_title:"Practical Info",prac_room:"Your room",prac_room_desc:"Empty mini-bar, safe, hairdryer, 32\" flat-screen TV, free Wi-Fi — all included.",prac_climate:"Air conditioning & heating",prac_climate_desc:"AC: June 1–Sept 30 · Heating: Dec 1–Mar 31.",prac_wifi:"Free Wi-Fi",prac_wifi_desc:"Throughout the hotel, rooms included.",prac_atm:"ATM",prac_atm_desc:"Cash machine in the reception hall.",prac_tv:"Satellite TV",prac_tv_desc:"+50 international satellite channels.",contact_overline:"Find us",contact_title:"Contact",contact_address_title:"Address",contact_phone_title:"Phone",contact_email_title:"Reservations",contact_web_title:"Website",footer_credit:"Digital guide designed by OmarSoft for Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — content to be validated with the hotel"},
-de:{nav_reception:"Rezeption",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_animation:"Animation",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Aufenthaltsguide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer & Suiten",hero_gallery:"️ Fotogalerie",hero_guide:" Vollständiger Guide",qi_overline:"Zu Ihren Diensten",qi_title:"Unsere Services",qi_reception:"Rezeption",qi_reception_desc:"24/7",qi_restaurants:"Restaurants",qi_restaurants_desc:"Coco de Mer & Hauptbuffet",qi_bars:"Bars & Maurisches Café",qi_bars_desc:"Marquis, Mac Hari, La Kasbah, Strandbar",qi_spa:"SPA",qi_spa_desc:"7/7 · Hammam, Massagen, Anwendungen",qi_animation:"Animation",qi_animation_desc:"7/7 · Shows & Abendveranstaltungen",qi_pools:"Pools",qi_pools_desc:"Beheizt überdacht + Außen + Planschbecken",resto_overline:"Geschmäcker der Welt",resto_title:"Restaurants",resto_subtitle:"Alle Mahlzeiten und Snacks sind in Ihrem Ultra All Inclusive Paket enthalten.",resto_breakfast:"Frühstück",resto_breakfast_time:"06:00 – 10:00 · Täglich",resto_breakfast_desc:"Buffet im Hauptrestaurant, Show Cooking ab 8 Uhr. Spätes Frühstück: Lobby Bar, 10:00–11:00.",resto_lunch:"Mittagessen « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 Tage/Woche",resto_lunch_desc:"Buffet im Hauptrestaurant, klimatisierter Raum + Poolterrasse. Frische Getränke und lokale tunesische Weine inklusive.",resto_dinner:"Abendessen « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 Tage/Woche",resto_dinner_desc:"Buffet im Hauptrestaurant, 3 Themenabende pro Woche. Gepflegte Kleidung erforderlich.",day_mon:"Montag",day_wed:"Mittwoch",day_fri:"Freitag",day_sat:"Samstag",theme_italian:"🇮🇹 Italienisch",theme_oriental:"🌙 Orientalisch",theme_med:"🫒 Mediterran",theme_intl:" International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · Mitte Mai bis Okt · 3–4 Abende/Woche",resto_coco_desc:"Strandnahe Pergola. Wechselnde Menüs: tunesisch & orientalisch, mediterran, italienisch, Fischermenü.",resto_snack:"Snacking & Imbiss",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"Sandwiches, Gebäck, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"Crêpes, 15:00–17:00 (Mitte Mai bis Okt)",snack_apero:"Apéro Time",snack_apero_desc:"Chips, Oliven, Popcorn, 17:00–19:00",badge_included:"Inklusive",badge_winter:"Winter 12:30–14:00",badge_summer:"Sommer 12:30–14:30",badge_reservation:"Reservierung empfohlen",bars_overline:"Cocktails & Atmosphäre",bars_title:"Bars & Maurisches Café",bars_subtitle:"Heiße und kalte Getränke 24/7 inklusive. Lokale alkoholische Getränke von 10:00 bis 00:00 inklusive.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Hauptbar",bar_lobby_hours:"7/7 · 24/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Sommer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_pool_days:"6/7",bar_cafe:"La Kasbah",bar_cafe_name:"Maurisches Café",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6/7",bar_beach:"La Cabane",bar_beach_name:"Strandbar",bar_beach_hours:"10:00 – 19:00 · Mai–Okt",bar_beach_days:"7/7",bar_cocktail:"Cocktail-Tisch",bar_cocktail_name:"Lobby Bar Terrasse",bar_cocktail_hours:"Tägliche Cocktails, mit oder ohne Alkohol · 19:00–23:00",bar_cocktail_season:"Von Mai bis Juni (wetterabhängig)",bar_note_title:"ℹ️ Bitte beachten:",bar_note_text:"Das tunesische Gesetz verbietet den Alkoholausschank an Personen unter 18 Jahren. Von Mitternacht bis 10:00 Uhr sind alkoholische Getränke kostenpflichtig. Shisha, italienischer Espresso und importierte Spirituosen sind gegen Aufpreis.",pools_overline:"Wasserentspannung",pools_title:"Pools",pool_indoor:"Beheiztes Hallenbad",pool_indoor_desc:"Im Winter geöffnet · 7/7 · Ideal für die kalte Jahreszeit",pool_outdoor:"Außenpool",pool_outdoor_desc:"Großer Außenpool mit Terrasse · Im Sommer geöffnet",pool_kids:"Planschbecken",pool_kids_desc:"Wasserbereich für Kinder · Sicher und flach",spa_overline:"Entspannung",spa_title:"SPA & Wellness",spa_desc:"Hammam, Massagen, Schönheitsbehandlungen, Kurpakete, Friseur — ca. 8 Kabinen. Geöffnet 7/7.",golf_desc:"27 Löcher, 3 Kurse mit je 9 Löchern. 15 km vom Hotel entfernt (≈10 Min. mit dem Taxi).",services_title:"Services",services_desc:"‍⚕️ Arzt auf Abruf 24/7 · 💊 Krankenstation ·  Wäscherei · 🛍️ Geschäfte · 📸 Fotograf",anim_overline:"Spaß & Entspannung",anim_title:"Animation & Abendshows",anim_subtitle:"Mehrsprachiges Animationsprogramm 7/7, je nach Hotelbelegung und Wetter.",act_tennis:"Tennis (6 Plätze)",act_volley:"Beachvolleyball",act_golf:"Minigolf",act_aqua:"Aquagym",act_show:"Shows",act_games:"Gesellschaftsspiele",act_watersports:"Wassersport",act_theme:"Themenabende",kids_title:"Kids Club",kids_desc:"Betreut vom Animationsteam, Gruppen nach Alter. Klimatisierter Raum, TV, WLAN, schattiger Outdoor-Spielbereich.",kids_time:"10:00 – 17:00 · 6/7",kids_vacances:"Während der Schulferien",teen_title:"Teen-Programm",teen_desc:"Spezielles Programm während der Sommerferien: Aktivitäten, Sport, Turniere, WLAN im gesamten Hotel.",teen_time:"13–16 Jahre · Sommerferien",anim_venue_title:"🎭 Show-Veranstaltungsort",anim_winter_title:"️ Im Winter",anim_winter_desc:"Innen-Amphitheater — Show + Disco, 21:30–23:00",anim_summer_title:"☀️ Im Sommer",anim_summer_desc:"Amphitheater (Poolterrasse) — Show + Disco, 22:00–23:30",anim_theme_note:"Themenabende (Schaumparty, Poolparty...) einmal pro Woche",prac_overline:"Ihr Komfort",prac_title:"Praktische Infos",prac_room:"Ihr Zimmer",prac_room_desc:"Leere Minibar, Safe, Haartrockner, 32\" Flachbild-TV, kostenloses WLAN — alles inklusive.",prac_climate:"Klimaanlage & Heizung",prac_climate_desc:"Klima: 1. Juni–30. Sept · Heizung: 1. Dez–31. März.",prac_wifi:"Kostenloses WLAN",prac_wifi_desc:"Im gesamten Hotel, Zimmer inklusive.",prac_atm:"Geldautomat",prac_atm_desc:"Geldautomat in der Empfangshalle.",prac_tv:"Satelliten-TV",prac_tv_desc:"+50 internationale Satellitenkanäle.",contact_overline:"Uns finden",contact_title:"Kontakt",contact_address_title:"Adresse",contact_phone_title:"Telefon",contact_email_title:"Reservierungen",contact_web_title:"Webseite",footer_credit:"Digitaler Guide erstellt von OmarSoft für Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — Inhalt vor der endgültigen Veröffentlichung mit dem Hotel zu validieren"}
+fr:{nav_reception:"Réception",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_infirmary:"Infirmerie",nav_animation:"Animation",nav_contact:"Contact",hero_badge:"OUVERT 24/24 · TOUTE L'ANNÉE",hero_title:"Hari Club Beach Resort",hero_subtitle:"Votre guide de séjour Ultra All Inclusive — restaurants, bars, activités et infos pratiques, à portée de main.",hero_wifi:"Wi-Fi gratuit",hero_beach:"Plage privée 400 m",hero_rooms:"212 chambres, bungalows & suites",hero_gallery:"️ Galerie photos",hero_guide:"📖 Guide complet",qi_overline:"À votre service",qi_title:"Nos Services",qi_reception:"Réception",qi_reception_desc:"24h/24 · 7j/7 · Depuis chambre : composez le 9",qi_restaurants:"Restaurants",qi_restaurants_desc:"Buffet principal, Coco de Mer, Pool Snacks, Berber Tent",qi_bars:"5 Bars",qi_bars_desc:"Lobby, Pool, Beach, Café Maure, Discothèque",qi_spa:"SPA",qi_spa_desc:"7j/7 · Hammam, massages, soins beauté",qi_infirmary:"Infirmerie",qi_infirmary_desc:"Médecin sur place 24/7 · Assurance voyage acceptée",qi_animation:"Animation",qi_animation_desc:"7j/7 · Spectacles & soirées à thème",qi_pools:"2 Piscines",qi_pools_desc:"Plein air + Intérieure chauffée",qi_kids:"Mini Club",qi_kids_desc:"Vacances scolaires · 10h-17h · 6j/7",resto_overline:"Saveurs du monde",resto_title:"Restaurants",resto_subtitle:"Tous les repas et snacks sont inclus dans votre formule Ultra All Inclusive.",resto_breakfast:"Petit-déjeuner",resto_breakfast_time:"06:00 – 10:00 · Tous les jours",resto_breakfast_desc:"Buffet au restaurant principal, show cooking dès 8h. Petit-déjeuner tardif : Lobby Bar, 10:00–11:00.",resto_lunch:"Déjeuner « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7j/7",resto_lunch_desc:"Buffet au restaurant principal, salle climatisée + terrasse piscine. Boissons et vins tunisiens inclus.",resto_dinner:"Dîner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7j/7",resto_dinner_desc:"Buffet au restaurant principal, 3 soirées à thème par semaine. Tenue correcte exigée.",day_mon:"Lundi",day_wed:"Mercredi",day_fri:"Vendredi",day_sat:"Samedi",theme_italian:"🇮🇹 Italien",theme_oriental:"🌙 Oriental",theme_med:"🫒 Méditerranéen",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mi-mai à oct · 3–4 soirs/sem",resto_coco_desc:"Pergola en bord de plage. Menus en rotation : tunisienne & orientale, méditerranéenne, italienne, menu du pêcheur.",resto_snack:"Snacking & en-cas",resto_snack_time:"24/24",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwichs, pâtisseries, 24h/24",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00 (mi-mai à oct)",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, pop-corn, 17:00–19:00",badge_included:"Inclus",badge_winter:"Hiver 12:30–14:00",badge_summer:"Été 12:30–14:30",badge_reservation:"Réservation conseillée",bars_overline:"Cocktails & ambiance",bars_title:"5 Bars & Café Maure",bars_subtitle:"Boissons chaudes et froides incluses 24/24. Boissons alcoolisées locales incluses de 10:00 à 00:00.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Bar principal",bar_lobby_hours:"7j/7 · 24h/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Été : 10:00 – 00:00",bar_pool_winter:"Hiver : 10:00 – 18:00",bar_pool_days:"6j/7",bar_cafe:"La Kasbah",bar_cafe_name:"Café Maure",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6j/7",bar_beach:"La Cabane",bar_beach_name:"Buvette Plage",bar_beach_hours:"10:00 – 19:00 · mai–oct",bar_beach_days:"7j/7",bar_disco:"Discothèque",bar_disco_name:"Soirées & spectacles",bar_disco_hours:"Spectacle + disco",bar_disco_days:"7j/7",bar_cocktail:"Table à cocktails",bar_cocktail_name:"Terrasse du Lobby Bar",bar_cocktail_hours:"Cocktails du jour · 19:00–23:00",bar_cocktail_season:"De Mai à Juin (selon conditions climatiques)",bar_note_title:"️ À savoir :",bar_note_text:"La loi tunisienne interdit de servir de l'alcool aux moins de 18 ans. De minuit à 10:00, les boissons alcoolisées sont payantes. Chicha, café espresso italien et alcools importés sont en supplément.",pools_overline:"Détente aquatique",pools_title:"2 Piscines",pool_indoor:"Piscine intérieure chauffée",pool_indoor_desc:"Ouverte en hiver · 7j/7 · Idéale pour la saison froide",pool_outdoor:"Piscine principale en plein air",pool_outdoor_desc:"Grande piscine extérieure avec terrasse · Ouverte en été",pool_kids:"Pataugeoire",pool_kids_desc:"Espace aquatique dédié aux enfants · Sécurisé et peu profond",spa_overline:"Relaxation",spa_title:"SPA & Bien-être",spa_desc:"Hammam, massages, soins de beauté, forfaits cures, coiffeur — environ 8 cabines. Ouvert 7j/7.",golf_desc:"27 trous, 3 parcours de 9 trous. À 15 km de l'hôtel (≈10 min en taxi).",services_title:"Services",services_desc:"‍⚕️ Médecin 24/24 · 💊 Infirmerie · 🧺 Blanchisserie · 🛍️ The Gallery boutiques · 📸 Photographe ·  Centre de congrès & salles de réunion",inf_overline:"Santé & Sécurité",inf_title:"Infirmerie & Assistance Médicale",inf_subtitle:"Service médical sur place 24h/24 · 7j/7 · Assurance voyage acceptée",inf_header:"Medical Assistance — Doctor on Call",inf_emergency_label:"🚨 URGENCE MÉDICALE — APPEL 24/7",inf_feat1_title:"Médecin & Infirmier sur place",inf_feat1_desc:"Service médical 24/7 sur site · Livraison de médicaments incluse",inf_feat2_title:"Médicaments livrés sur place",inf_feat2_desc:"Pharmacie disponible · Consultation remboursable par mutuelle et assurance voyage",inf_feat3_title:"Dossier assurance géré",inf_feat3_desc:"Gratuitement avec rapport médical et facturation conforme · Coordination directe avec assurances internationales",inf_feat4_title:"Ambulance & hospitalisation",inf_feat4_desc:"Prises en charge par l'assurance selon indication · Cliniques partenaires",inf_whatsapp:"Contact via WhatsApp — Réponse rapide",anim_overline:"Fun & détente",anim_title:"Animation & Soirées",anim_subtitle:"Programme d'animation multilingue 7j/7, selon l'occupation de l'hôtel et la météo.",act_tennis:"Tennis (6 courts)",act_volley:"Beach-volley",act_golf:"Mini-golf",act_football:"Mini-foot",act_aqua:"Aquagym",act_show:"Spectacles",act_games:"Jeux de société",act_watersports:"Sports nautiques",kids_title:"Mini Club",kids_desc:"Encadré par l'équipe d'animation, groupes par âge. Salle climatisée, TV, Wi-Fi, aire de jeux extérieure ombragée.",kids_time:"10:00 – 17:00 · 6j/7",kids_vacances:"Pendant les vacances scolaires",teen_title:"Programme Ados",teen_desc:"Programme dédié pendant les vacances scolaires d'été : activités, sport, tournois, Wi-Fi partout dans l'hôtel.",teen_time:"13–16 ans · Vacances d'été",anim_venue_title:"🎭 Lieu des spectacles",anim_winter_title:"️ En hiver",anim_winter_desc:"Amphithéâtre intérieur — Spectacle + disco, 21:30–23:00",anim_summer_title:"☀️ En été",anim_summer_desc:"Amphithéâtre (Terrasse Piscine) — Spectacle + disco, 22:00–23:30",anim_theme_note:"Soirées à thème (mousse, pool party...) une fois par semaine",prac_overline:"Votre confort",prac_title:"Infos pratiques",prac_room:"Votre chambre",prac_room_desc:"Coffre-fort, sèche-cheveux, TV 32\" écran plat, Wi-Fi gratuit. Pour appeler la réception, composez le 9.",prac_climate:"Clim & chauffage",prac_climate_desc:"Clim : 1 juin–30 sept · Chauffage : 1 déc–31 mars.",prac_wifi:"Wi-Fi gratuit",prac_wifi_desc:"Partout dans l'hôtel, chambres incluses.",prac_atm:"DAB",prac_atm_desc:"Distributeur automatique au hall de réception.",prac_tv:"TV Satellite",prac_tv_desc:"+50 chaînes satellite internationales.",prac_congress:"Centre de congrès",prac_congress_desc:"Salles de réunion disponibles pour vos événements professionnels.",contact_overline:"Nous trouver",contact_title:"Contact",contact_address_title:"Adresse",contact_phone_title:"Téléphone",contact_from_room:"📱 Depuis la chambre : composez le 9",contact_emergency_title:"Urgence médicale",contact_emergency_desc:"Médecin sur place 24/7",contact_email_title:"Réservations",contact_sales_title:"Ventes & Groupes",contact_web_title:"Site web",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — contenu à valider avec l'hôtel"},
+en:{nav_reception:"Reception",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_infirmary:"Infirmary",nav_animation:"Entertainment",nav_contact:"Contact",hero_badge:"OPEN 24/7 · ALL YEAR",hero_title:"Hari Club Beach Resort",hero_subtitle:"Your Ultra All Inclusive stay guide — restaurants, bars, activities and practical info.",hero_wifi:"Free Wi-Fi",hero_beach:"Private beach 400m",hero_rooms:"212 rooms, bungalows & suites",hero_gallery:"🖼️ Photo Gallery",hero_guide:"📖 Full guide",qi_overline:"At your service",qi_title:"Our Services",qi_reception:"Reception",qi_reception_desc:"24/7 · From room: dial 9",qi_restaurants:"Restaurants",qi_restaurants_desc:"Main Buffet, Coco de Mer, Pool Snacks, Berber Tent",qi_bars:"5 Bars",qi_bars_desc:"Lobby, Pool, Beach, Moorish Café, Discotheque",qi_spa:"SPA",qi_spa_desc:"7/7 · Hammam, massages, beauty treatments",qi_infirmary:"Infirmary",qi_infirmary_desc:"Doctor on site 24/7 · Travel insurance accepted",qi_animation:"Entertainment",qi_animation_desc:"7/7 · Shows & theme nights",qi_pools:"2 Pools",qi_pools_desc:"Outdoor + Indoor heated",qi_kids:"Kids Club",qi_kids_desc:"School holidays · 10am-5pm · 6/7",resto_overline:"World flavors",resto_title:"Restaurants",resto_subtitle:"All meals and snacks are included in your Ultra All Inclusive package.",resto_breakfast:"Breakfast",resto_breakfast_time:"06:00 – 10:00 · Daily",resto_breakfast_desc:"Buffet at the main restaurant, show cooking from 8am. Late breakfast: Lobby Bar, 10:00–11:00.",resto_lunch:"Lunch « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 days/week",resto_lunch_desc:"Buffet at the main restaurant, air-conditioned room + pool terrace. Drinks and local Tunisian wines included.",resto_dinner:"Dinner « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 days/week",resto_dinner_desc:"Buffet at the main restaurant, 3 themed evenings per week. Smart dress code required.",day_mon:"Monday",day_wed:"Wednesday",day_fri:"Friday",day_sat:"Saturday",theme_italian:"🇮🇹 Italian",theme_oriental:"🌙 Oriental",theme_med:"🫒 Mediterranean",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · mid-May to Oct · 3–4 nights/week",resto_coco_desc:"Beachside pergola. Rotating menus: Tunisian & Oriental, Mediterranean, Italian, fisherman's menu.",resto_snack:"Snacking & light bites",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"sandwiches, pastries, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"crêpes, 15:00–17:00 (mid-May to Oct)",snack_apero:"Apéro Time",snack_apero_desc:"chips, olives, popcorn, 17:00–19:00",badge_included:"Included",badge_winter:"Winter 12:30–14:00",badge_summer:"Summer 12:30–14:30",badge_reservation:"Reservation recommended",bars_overline:"Cocktails & atmosphere",bars_title:"5 Bars & Moorish Café",bars_subtitle:"Hot and cold drinks included 24/7. Local alcoholic drinks included from 10:00 to 00:00.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Main Bar",bar_lobby_hours:"7/7 · 24/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Summer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_pool_days:"6/7",bar_cafe:"La Kasbah",bar_cafe_name:"Moorish Café",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6/7",bar_beach:"La Cabane",bar_beach_name:"Beach Bar",bar_beach_hours:"10:00 – 19:00 · May–Oct",bar_beach_days:"7/7",bar_disco:"Discotheque",bar_disco_name:"Evenings & shows",bar_disco_hours:"Show + disco",bar_disco_days:"7/7",bar_cocktail:"Cocktail table",bar_cocktail_name:"Lobby Bar terrace",bar_cocktail_hours:"Daily cocktails · 19:00–23:00",bar_cocktail_season:"From May to June (weather dependent)",bar_note_title:"ℹ️ Please note:",bar_note_text:"Tunisian law prohibits serving alcohol to persons under 18. From midnight to 10:00, alcoholic drinks are chargeable. Shisha, Italian espresso and imported spirits are at extra charge.",pools_overline:"Water relaxation",pools_title:"2 Pools",pool_indoor:"Indoor heated pool",pool_indoor_desc:"Open in winter · 7/7 · Ideal for the cold season",pool_outdoor:"Main outdoor pool",pool_outdoor_desc:"Large outdoor pool with terrace · Open in summer",pool_kids:"Paddling pool",pool_kids_desc:"Dedicated water area for children · Safe and shallow",spa_overline:"Relaxation",spa_title:"SPA & Wellness",spa_desc:"Hammam, massages, beauty treatments, cure packages, hairdresser — about 8 cabins. Open 7/7.",golf_desc:"27 holes, 3 courses of 9 holes. 15 km from the hotel (≈10 min by taxi).",services_title:"Services",services_desc:"👨‍⚕️ Doctor 24/7 · 💊 Infirmary ·  Laundry · 🛍️ The Gallery shops · 📸 Photographer · 🏢 Congress Center & Meeting Rooms",inf_overline:"Health & Safety",inf_title:"Infirmary & Medical Assistance",inf_subtitle:"On-site medical service 24/7 · Travel insurance accepted",inf_header:"Medical Assistance — Doctor on Call",inf_emergency_label:" MEDICAL EMERGENCY — CALL 24/7",inf_feat1_title:"Doctor & Nurse on site",inf_feat1_desc:"24/7 on-site medical service · Medication delivery included",inf_feat2_title:"Medication delivered on site",inf_feat2_desc:"Pharmacy available · Consultation reimbursable by mutual insurance and travel insurance",inf_feat3_title:"Insurance file managed",inf_feat3_desc:"Free of charge with medical report and compliant billing · Direct coordination with international insurance companies",inf_feat4_title:"Ambulance & hospitalization",inf_feat4_desc:"Covered by insurance as indicated · Partner clinics",inf_whatsapp:"Contact via WhatsApp — Fast response",anim_overline:"Fun & relaxation",anim_title:"Entertainment & Evening Shows",anim_subtitle:"Multilingual entertainment program 7/7, subject to hotel occupancy and weather.",act_tennis:"Tennis (6 courts)",act_volley:"Beach volleyball",act_golf:"Mini-golf",act_football:"Mini football",act_aqua:"Aquagym",act_show:"Shows",act_games:"Board games",act_watersports:"Water sports",kids_title:"Kids Club",kids_desc:"Supervised by the entertainment team, groups by age. Air-conditioned room, TV, Wi-Fi, shaded outdoor play area.",kids_time:"10:00 – 17:00 · 6/7",kids_vacances:"During school holidays",teen_title:"Teen Program",teen_desc:"Dedicated program during summer school holidays: activities, sports, tournaments, Wi-Fi throughout the hotel.",teen_time:"13–16 years · Summer holidays",anim_venue_title:"🎭 Show venue",anim_winter_title:"️ In winter",anim_winter_desc:"Indoor amphitheater — Show + disco, 21:30–23:00",anim_summer_title:"☀️ In summer",anim_summer_desc:"Amphitheater (Pool Terrace) — Show + disco, 22:00–23:30",anim_theme_note:"Theme nights (foam, pool party...) once a week",prac_overline:"Your comfort",prac_title:"Practical Info",prac_room:"Your room",prac_room_desc:"Safe, hairdryer, 32\" flat-screen TV, free Wi-Fi. To call reception, dial 9.",prac_climate:"Air conditioning & heating",prac_climate_desc:"AC: June 1–Sept 30 · Heating: Dec 1–Mar 31.",prac_wifi:"Free Wi-Fi",prac_wifi_desc:"Throughout the hotel, rooms included.",prac_atm:"ATM",prac_atm_desc:"Cash machine in the reception hall.",prac_tv:"Satellite TV",prac_tv_desc:"+50 international satellite channels.",prac_congress:"Congress Center",prac_congress_desc:"Meeting rooms available for your professional events.",contact_overline:"Find us",contact_title:"Contact",contact_address_title:"Address",contact_phone_title:"Phone",contact_from_room:"📱 From the room: dial 9",contact_emergency_title:"Medical emergency",contact_emergency_desc:"Doctor on site 24/7",contact_email_title:"Reservations",contact_sales_title:"Sales & Groups",contact_web_title:"Website",footer_credit:"Digital guide designed by OmarSoft for Hari Club Beach Resort",footer_prototype:"🔧 PROTOTYPE — content to be validated with the hotel"},
+de:{nav_reception:"Rezeption",nav_restaurants:"Restaurants",nav_bars:"Bars",nav_spa:"SPA",nav_infirmary:"Krankenstation",nav_animation:"Animation",nav_contact:"Kontakt",hero_badge:"GEÖFFNET 24/7 · GANZJÄHRIG",hero_title:"Hari Club Beach Resort",hero_subtitle:"Ihr Ultra All Inclusive Aufenthaltsguide — Restaurants, Bars, Aktivitäten und praktische Infos.",hero_wifi:"Kostenloses WLAN",hero_beach:"Privatstrand 400m",hero_rooms:"212 Zimmer, Bungalows & Suiten",hero_gallery:"🖼️ Fotogalerie",hero_guide:"📖 Vollständiger Guide",qi_overline:"Zu Ihren Diensten",qi_title:"Unsere Services",qi_reception:"Rezeption",qi_reception_desc:"24/7 · Vom Zimmer: wählen Sie 9",qi_restaurants:"Restaurants",qi_restaurants_desc:"Hauptbuffet, Coco de Mer, Pool Snacks, Berber Tent",qi_bars:"5 Bars",qi_bars_desc:"Lobby, Pool, Strand, Maurisches Café, Disco",qi_spa:"SPA",qi_spa_desc:"7/7 · Hammam, Massagen, Schönheitsbehandlungen",qi_infirmary:"Krankenstation",qi_infirmary_desc:"Arzt vor Ort 24/7 · Reiseversicherung akzeptiert",qi_animation:"Animation",qi_animation_desc:"7/7 · Shows & Themenabende",qi_pools:"2 Pools",qi_pools_desc:"Außen + Beheiztes Hallenbad",qi_kids:"Kids Club",qi_kids_desc:"Schulferien · 10-17 Uhr · 6/7",resto_overline:"Geschmäcker der Welt",resto_title:"Restaurants",resto_subtitle:"Alle Mahlzeiten und Snacks sind in Ihrem Ultra All Inclusive Paket enthalten.",resto_breakfast:"Frühstück",resto_breakfast_time:"06:00 – 10:00 · Täglich",resto_breakfast_desc:"Buffet im Hauptrestaurant, Show Cooking ab 8 Uhr. Spätes Frühstück: Lobby Bar, 10:00–11:00.",resto_lunch:"Mittagessen « Le Gourmet »",resto_lunch_time:"12:30 – 14:30 · 7 Tage/Woche",resto_lunch_desc:"Buffet im Hauptrestaurant, klimatisierter Raum + Poolterrasse. Frische Getränke und lokale tunesische Weine inklusive.",resto_dinner:"Abendessen « Le Gourmet »",resto_dinner_time:"18:30–21:30 · 7 Tage/Woche",resto_dinner_desc:"Buffet im Hauptrestaurant, 3 Themenabende pro Woche. Gepflegte Kleidung erforderlich.",day_mon:"Montag",day_wed:"Mittwoch",day_fri:"Freitag",day_sat:"Samstag",theme_italian:"🇮🇹 Italienisch",theme_oriental:"🌙 Orientalisch",theme_med:"🫒 Mediterran",theme_intl:"🌍 International",resto_coco:"Le Coco de Mer",resto_coco_time:"19:00–21:30 · Mitte Mai bis Okt · 3–4 Abende/Woche",resto_coco_desc:"Strandnahe Pergola. Wechselnde Menüs: tunesisch & orientalisch, mediterran, italienisch, Fischermenü.",resto_snack:"Snacking & Imbiss",resto_snack_time:"24/7",snack_marquis:"Le Marquis (Lobby Bar)",snack_marquis_desc:"Sandwiches, Gebäck, 24/7",snack_coco:"Coco de Mer",snack_coco_desc:"Crêpes, 15:00–17:00 (Mitte Mai bis Okt)",snack_apero:"Apéro Time",snack_apero_desc:"Chips, Oliven, Popcorn, 17:00–19:00",badge_included:"Inklusive",badge_winter:"Winter 12:30–14:00",badge_summer:"Sommer 12:30–14:30",badge_reservation:"Reservierung empfohlen",bars_overline:"Cocktails & Atmosphäre",bars_title:"5 Bars & Maurisches Café",bars_subtitle:"Heiße und kalte Getränke 24/7 inklusive. Lokale alkoholische Getränke von 10:00 bis 00:00 inklusive.",bar_lobby:"Le Marquis",bar_lobby_name:"Lobby Bar — Hauptbar",bar_lobby_hours:"7/7 · 24/24",bar_pool:"Mac Hari",bar_pool_name:"Pool Bar",bar_pool_summer:"Sommer: 10:00 – 00:00",bar_pool_winter:"Winter: 10:00 – 18:00",bar_pool_days:"6/7",bar_cafe:"La Kasbah",bar_cafe_name:"Maurisches Café",bar_cafe_hours:"16:00 – 00:00",bar_cafe_days:"6/7",bar_beach:"La Cabane",bar_beach_name:"Strandbar",bar_beach_hours:"10:00 – 19:00 · Mai–Okt",bar_beach_days:"7/7",bar_disco:"Discothek",bar_disco_name:"Abende & Shows",bar_disco_hours:"Show + Disco",bar_disco_days:"7/7",bar_cocktail:"Cocktail-Tisch",bar_cocktail_name:"Lobby Bar Terrasse",bar_cocktail_hours:"Tägliche Cocktails · 19:00–23:00",bar_cocktail_season:"Von Mai bis Juni (wetterabhängig)",bar_note_title:"ℹ️ Bitte beachten:",bar_note_text:"Das tunesische Gesetz verbietet den Alkoholausschank an Personen unter 18 Jahren. Von Mitternacht bis 10:00 Uhr sind alkoholische Getränke kostenpflichtig. Shisha, italienischer Espresso und importierte Spirituosen sind gegen Aufpreis.",pools_overline:"Wasserentspannung",pools_title:"2 Pools",pool_indoor:"Beheiztes Hallenbad",pool_indoor_desc:"Im Winter geöffnet · 7/7 · Ideal für die kalte Jahreszeit",pool_outdoor:"Haupt-Außenpool",pool_outdoor_desc:"Großer Außenpool mit Terrasse · Im Sommer geöffnet",pool_kids:"Planschbecken",pool_kids_desc:"Wasserbereich für Kinder · Sicher und flach",spa_overline:"Entspannung",spa_title:"SPA & Wellness",spa_desc:"Hammam, Massagen, Schönheitsbehandlungen, Kurpakete, Friseur — ca. 8 Kabinen. Geöffnet 7/7.",golf_desc:"27 Löcher, 3 Kurse mit je 9 Löchern. 15 km vom Hotel entfernt (≈10 Min. mit dem Taxi).",services_title:"Services",services_desc:"👨‍⚕️ Arzt 24/7 · 💊 Krankenstation · 🧺 Wäscherei · ️ The Gallery Geschäfte · 📸 Fotograf · 🏢 Kongresszentrum & Tagungsräume",inf_overline:"Gesundheit & Sicherheit",inf_title:"Krankenstation & Medizinische Hilfe",inf_subtitle:"Medizinischer Service vor Ort 24/7 · Reiseversicherung akzeptiert",inf_header:"Medical Assistance — Doctor on Call",inf_emergency_label:"🚨 MEDIZINISCHER NOTFALL — ANRUF 24/7",inf_feat1_title:"Arzt & Krankenschwester vor Ort",inf_feat1_desc:"24/7 medizinischer Service vor Ort · Medikamentenlieferung inklusive",inf_feat2_title:"Medikamente vor Ort geliefert",inf_feat2_desc:"Apotheke verfügbar · consultation erstattungsfähig durch Reiseversicherung",inf_feat3_title:"Versicherungsakte verwaltet",inf_feat3_desc:"Kostenlos mit ärztlichem Bericht und konformer Abrechnung · Direkte Koordination mit internationalen Versicherungen",inf_feat4_title:"Krankenwagen & Krankenhausaufenthalt",inf_feat4_desc:"Von der Versicherung übernommen je nach Indikation · Partnerkliniken",inf_whatsapp:"Kontakt via WhatsApp — Schnelle Antwort",anim_overline:"Spaß & Entspannung",anim_title:"Animation & Abendshows",anim_subtitle:"Mehrsprachiges Animationsprogramm 7/7, je nach Hotelbelegung und Wetter.",act_tennis:"Tennis (6 Plätze)",act_volley:"Beachvolleyball",act_golf:"Minigolf",act_football:"Minifußball",act_aqua:"Aquagym",act_show:"Shows",act_games:"Gesellschaftsspiele",act_watersports:"Wassersport",kids_title:"Kids Club",kids_desc:"Betreut vom Animationsteam, Gruppen nach Alter. Klimatisierter Raum, TV, WLAN, schattiger Outdoor-Spielbereich.",kids_time:"10:00 – 17:00 · 6/7",kids_vacances:"Während der Schulferien",teen_title:"Teen-Programm",teen_desc:"Spezielles Programm während der Sommerferien: Aktivitäten, Sport, Turniere, WLAN im gesamten Hotel.",teen_time:"13–16 Jahre · Sommerferien",anim_venue_title:" Show-Veranstaltungsort",anim_winter_title:"❄️ Im Winter",anim_winter_desc:"Innen-Amphitheater — Show + Disco, 21:30–23:00",anim_summer_title:"☀️ Im Sommer",anim_summer_desc:"Amphitheater (Poolterrasse) — Show + Disco, 22:00–23:30",anim_theme_note:"Themenabende (Schaumparty, Poolparty...) einmal pro Woche",prac_overline:"Ihr Komfort",prac_title:"Praktische Infos",prac_room:"Ihr Zimmer",prac_room_desc:"Safe, Haartrockner, 32\" Flachbild-TV, kostenloses WLAN. Um die Rezeption anzurufen, wählen Sie 9.",prac_climate:"Klimaanlage & Heizung",prac_climate_desc:"Klima: 1. Juni–30. Sept · Heizung: 1. Dez–31. März.",prac_wifi:"Kostenloses WLAN",prac_wifi_desc:"Im gesamten Hotel, Zimmer inklusive.",prac_atm:"Geldautomat",prac_atm_desc:"Geldautomat in der Empfangshalle.",prac_tv:"Satelliten-TV",prac_tv_desc:"+50 internationale Satellitenkanäle.",prac_congress:"Kongresszentrum",prac_congress_desc:"Tagungsräume für Ihre beruflichen Veranstaltungen verfügbar.",contact_overline:"Uns finden",contact_title:"Kontakt",contact_address_title:"Adresse",contact_phone_title:"Telefon",contact_from_room:"📱 Vom Zimmer: wählen Sie 9",contact_emergency_title:"Medizinischer Notfall",contact_emergency_desc:"Arzt vor Ort 24/7",contact_email_title:"Reservierungen",contact_sales_title:"Verkauf & Gruppen",contact_web_title:"Webseite",footer_credit:"Digitaler Guide erstellt von OmarSoft für Hari Club Beach Resort",footer_prototype:" PROTOTYPE — Inhalt vor der endgültigen Veröffentlichung mit dem Hotel zu validieren"}
 };
 
-// LANGUAGE
 let currentLang='fr';
 const detectLang=()=>{const l=(navigator.language||'fr').split('-')[0];return(['en','de'].includes(l))?l:'fr';};
 const setLanguage=(lang)=>{
@@ -543,17 +645,14 @@ localStorage.setItem('hari_lang',lang);
 setLanguage(localStorage.getItem('hari_lang')||detectLang());
 document.querySelectorAll('.lang-flag').forEach(f=>f.addEventListener('click',()=>setLanguage(f.dataset.lang)));
 
-// NAVBAR SCROLL
 const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>80));
 
-// SCROLL ANIMATIONS
 const observer=new IntersectionObserver((entries)=>{
 entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-// FAB GALLERY
 document.getElementById('fabGallery').addEventListener('click',()=>window.location.href='galerie.html');
 </script>
 
