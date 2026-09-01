@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galerie Photos — Hari Club Beach Resort</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-height:1.6;overflow-x:hidden}
 
-/* NAVBAR - TOUJOURS VISIBLE HORIZONTALE */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,26,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.1);transition:all .35s}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;text-decoration:none;flex-shrink:0}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.7rem 1rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,26,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-logo{font-family:'Great Vibes',cursive;font-size:2rem;color:#fff;text-decoration:none;flex-shrink:0}
 .nav-logo span{color:#fcbf49}
 .nav-right{display:flex;align-items:center;gap:.8rem;flex:1;justify-content:flex-end}
 .btn-back{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:50px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .3s;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .btn-back:hover{background:#f77f00;border-color:#f77f00;transform:translateY(-2px)}
 .lang-flags{display:flex;gap:5px;flex-shrink:0}
-.lang-flag{width:28px;height:20px;border:2px solid rgba(255,255,255,.3);border-radius:3px;overflow:hidden;cursor:pointer;transition:all .3s;padding:0;background:none;flex-shrink:0}
+.lang-flag{width:26px;height:18px;border:2px solid rgba(255,255,255,.3);border-radius:3px;overflow:hidden;cursor:pointer;transition:all .3s;padding:0;background:none;flex-shrink:0}
 .lang-flag:hover,.lang-flag.active{transform:scale(1.2);border-color:#fcbf49;box-shadow:0 3px 10px rgba(0,0,0,.3)}
 .lang-flag svg{width:100%;height:100%;display:block}
 
@@ -30,11 +30,11 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(2,62,138,.7),rgba(0,119,182,.5),rgba(0,0,0,.4));z-index:2}
 .hero-content{position:relative;z-index:3;text-align:center;color:#fff;padding:2rem;max-width:800px}
 .hero-content .overline{display:inline-block;color:#fcbf49;font-weight:600;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.8rem}
-.hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);font-weight:900;margin-bottom:.8rem;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+.hero-content h1{font-family:'Great Vibes',cursive;font-size:clamp(3rem,7vw,5rem);font-weight:400;margin-bottom:.8rem;text-shadow:0 4px 30px rgba(0,0,0,.4)}
 .hero-content p{font-size:1rem;opacity:.95;max-width:600px;margin:0 auto}
 .hero-stats{display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap}
 .stat{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:.6rem 1.2rem;border-radius:12px}
-.stat .num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fcbf49}
+.stat .num{font-family:'Great Vibes',cursive;font-size:2rem;color:#fcbf49}
 .stat .label{font-size:.75rem;opacity:.9}
 
 /* GALLERY SECTION */
@@ -55,7 +55,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 .gallery-item:hover .gallery-overlay{opacity:1}
 .gallery-overlay .zoom-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);width:60px;height:60px;background:rgba(247,127,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:all .4s cubic-bezier(.4,0,.2,1);box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .gallery-item:hover .zoom-icon{transform:translate(-50%,-50%) scale(1)}
-.gallery-overlay .caption{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.gallery-overlay .caption{font-family:'Great Vibes',cursive;font-size:1.5rem;color:#fff;margin-bottom:.2rem;font-weight:400}
 .gallery-overlay .category{font-size:.75rem;color:#fcbf49;text-transform:uppercase;letter-spacing:1px}
 
 /* LIGHTBOX */
@@ -71,7 +71,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 .lightbox-prev{left:1rem}
 .lightbox-next{right:1rem}
 .lightbox-info{position:absolute;bottom:4.5rem;left:50%;transform:translateX(-50%);text-align:center;color:#fff;z-index:10}
-.lightbox-info .caption{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.2rem}
+.lightbox-info .caption{font-family:'Great Vibes',cursive;font-size:1.8rem;margin-bottom:.2rem;font-weight:400}
 .lightbox-info .counter{font-size:.85rem;color:#fcbf49;font-weight:600}
 .lightbox-thumbs{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;max-width:85vw;overflow-x:auto;padding:.4rem;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);border-radius:12px}
 .lightbox-thumb{width:60px;height:45px;border-radius:8px;overflow:hidden;cursor:pointer;opacity:.4;transition:all .3s;border:2px solid transparent;flex-shrink:0}
@@ -82,13 +82,13 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 .footer{background:#050510;color:rgba(255,255,255,.6);text-align:center;padding:1.5rem;font-size:.8rem}
 .footer a{color:#fcbf49}
 
-/* RESPONSIVE - MENU TOUJOURS VISIBLE */
+/* RESPONSIVE */
 @media(max-width:768px){
 .navbar{padding:.6rem .5rem}
-.nav-logo{font-size:1.1rem}
+.nav-logo{font-size:1.5rem}
 .btn-back{padding:.4rem .8rem;font-size:.75rem}
 .btn-back span{display:none}
-.lang-flag{width:24px;height:17px}
+.lang-flag{width:22px;height:15px}
 .hero-gallery{height:45vh;min-height:300px;padding-top:55px}
 .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
 .gallery-item:nth-child(3n+1){aspect-ratio:4/3}
@@ -97,7 +97,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 .lightbox-next{right:.5rem}
 .hero-stats{gap:1rem}
 .stat{padding:.5rem .8rem}
-.stat .num{font-size:1.2rem}
+.stat .num{font-size:1.5rem}
 }
 @media(max-width:480px){
 .gallery-grid{grid-template-columns:1fr}
@@ -106,7 +106,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 </head>
 <body>
 
-<!-- NAVBAR - TOUJOURS VISIBLE -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html" class="nav-logo">Hari <span>Club</span></a>
   <div class="nav-right">
@@ -159,7 +159,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
       <div class="gallery-item" data-category="beach" data-src="images/beach1.jpg">
         <img src="images/beach1.jpg" alt="Plage & cocotiers" loading="lazy">
         <div class="gallery-overlay">
-          <div class="zoom-icon">🔍</div>
+          <div class="zoom-icon"></div>
           <div class="caption" data-i18n="img1">Plage & cocotiers</div>
           <div class="category" data-i18n="cat_beach">Plage</div>
         </div>
@@ -183,7 +183,7 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
       <div class="gallery-item" data-category="beach" data-src="images/beach4.jpg">
         <img src="images/beach4.jpg" alt="Palmier & transats" loading="lazy">
         <div class="gallery-overlay">
-          <div class="zoom-icon">🔍</div>
+          <div class="zoom-icon"></div>
           <div class="caption" data-i18n="img4">Grand palmier & transats</div>
           <div class="category" data-i18n="cat_beach">Plage</div>
         </div>
@@ -196,8 +196,8 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
           <div class="category" data-i18n="cat_beach">Plage</div>
         </div>
       </div>
-      <div class="gallery-item" data-category="kids" data-src="images/miniclub1.jpg">
-        <img src="images/miniclub1.jpg" alt="Mini Club" loading="lazy">
+      <div class="gallery-item" data-category="kids" data-src="images/miniclub.jpg">
+        <img src="images/miniclub.jpg" alt="Mini Club" loading="lazy">
         <div class="gallery-overlay">
           <div class="zoom-icon">🔍</div>
           <div class="caption" data-i18n="img6">Mini Club Hari</div>
@@ -225,20 +225,18 @@ body{font-family:'Poppins',sans-serif;color:#1a1a2e;background:#0a0a1a;line-heig
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.4rem">Hari Club Beach Resort ★★★★</div>
+  <div style="font-family:'Great Vibes',cursive;font-size:2rem;color:#fff;margin-bottom:.4rem">Hari Club Beach Resort ★★★★</div>
   <p data-i18n="footer_credit">Guide numérique conçu par OmarSoft pour Hari Club Beach Resort</p>
   <p>© 2026 · <a href="https://www.hari-club.com">hari-club.com</a></p>
 </footer>
 
 <script>
-// TRANSLATIONS
 const translations={
-fr:{back:"Retour",gal_overline:"Visite virtuelle",gal_title:"Galerie Photos",gal_subtitle:"Découvrez le paradis de Djerba à travers nos plus belles images.",stat_photos:"Photos HD",stat_beach:"Plage privée",stat_rating:"Resort",filter_all:"🌟 Tout",filter_beach:"🏖️ Plage",filter_kids:"🎈 Mini Club",img1:"Plage & cocotiers",img2:"Parasols & mer turquoise",img3:"Vue panoramique de la plage",img4:"Grand palmier & transats",img5:"Bord de mer turquoise",img6:"Mini Club Hari",cat_beach:"Plage",cat_kids:"Enfants",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort"},
-en:{back:"Back",gal_overline:"Virtual tour",gal_title:"Photo Gallery",gal_subtitle:"Discover the paradise of Djerba through our most beautiful images.",stat_photos:"HD Photos",stat_beach:"Private beach",stat_rating:"Resort",filter_all:"🌟 All",filter_beach:"🏖️ Beach",filter_kids:"🎈 Kids Club",img1:"Beach & coconut trees",img2:"Parasols & turquoise sea",img3:"Panoramic beach view",img4:"Large palm tree & sun loungers",img5:"Turquoise seaside",img6:"Hari Kids Club",cat_beach:"Beach",cat_kids:"Kids",footer_credit:"Digital guide designed by OmarSoft for Hari Club Beach Resort"},
-de:{back:"Zurück",gal_overline:"Virtueller Rundgang",gal_title:"Fotogalerie",gal_subtitle:"Entdecken Sie das Paradies von Djerba durch unsere schönsten Bilder.",stat_photos:"HD Fotos",stat_beach:"Privatstrand",stat_rating:"Resort",filter_all:"🌟 Alle",filter_beach:"🏖️ Strand",filter_kids:"🎈 Kids Club",img1:"Strand & Kokospalmen",img2:"Sonnenschirme & türkis Meer",img3:"Panoramablick auf den Strand",img4:"Große Palme & Liegestühle",img5:"Türkisfarbene Küste",img6:"Hari Kids Club",cat_beach:"Strand",cat_kids:"Kinder",footer_credit:"Digitaler Guide erstellt von OmarSoft für Hari Club Beach Resort"}
+fr:{back:"Retour",gal_overline:"Visite virtuelle",gal_title:"Galerie Photos",gal_subtitle:"Découvrez le paradis de Djerba à travers nos plus belles images.",stat_photos:"Photos HD",stat_beach:"Plage privée",stat_rating:"Resort",filter_all:"🌟 Tout",filter_beach:"️ Plage",filter_kids:"🎈 Mini Club",img1:"Plage & cocotiers",img2:"Parasols & mer turquoise",img3:"Vue panoramique de la plage",img4:"Grand palmier & transats",img5:"Bord de mer turquoise",img6:"Mini Club Hari",cat_beach:"Plage",cat_kids:"Enfants",footer_credit:"Guide numérique conçu par OmarSoft pour Hari Club Beach Resort"},
+en:{back:"Back",gal_overline:"Virtual tour",gal_title:"Photo Gallery",gal_subtitle:"Discover the paradise of Djerba through our most beautiful images.",stat_photos:"HD Photos",stat_beach:"Private beach",stat_rating:"Resort",filter_all:"🌟 All",filter_beach:"🏖️ Beach",filter_kids:" Kids Club",img1:"Beach & coconut trees",img2:"Parasols & turquoise sea",img3:"Panoramic beach view",img4:"Large palm tree & sun loungers",img5:"Turquoise seaside",img6:"Hari Kids Club",cat_beach:"Beach",cat_kids:"Kids",footer_credit:"Digital guide designed by OmarSoft for Hari Club Beach Resort"},
+de:{back:"Zurück",gal_overline:"Virtueller Rundgang",gal_title:"Fotogalerie",gal_subtitle:"Entdecken Sie das Paradies von Djerba durch unsere schönsten Bilder.",stat_photos:"HD Fotos",stat_beach:"Privatstrand",stat_rating:"Resort",filter_all:"🌟 Alle",filter_beach:"🏖️ Strand",filter_kids:" Kids Club",img1:"Strand & Kokospalmen",img2:"Sonnenschirme & türkis Meer",img3:"Panoramablick auf den Strand",img4:"Große Palme & Liegestühle",img5:"Türkisfarbene Küste",img6:"Hari Kids Club",cat_beach:"Strand",cat_kids:"Kinder",footer_credit:"Digitaler Guide erstellt von OmarSoft für Hari Club Beach Resort"}
 };
 
-// LANGUAGE
 let currentLang='fr';
 const detectLang=()=>{const l=(navigator.language||'fr').split('-')[0];return(['en','de'].includes(l))?l:'fr';};
 const setLanguage=(lang)=>{
@@ -253,7 +251,6 @@ localStorage.setItem('hari_lang',lang);
 setLanguage(localStorage.getItem('hari_lang')||detectLang());
 document.querySelectorAll('.lang-flag').forEach(f=>f.addEventListener('click',()=>setLanguage(f.dataset.lang)));
 
-// HERO SLIDESHOW
 const heroSlides=document.querySelectorAll('.hero-slide');
 let currentHeroSlide=0;
 setInterval(()=>{
@@ -262,7 +259,6 @@ currentHeroSlide=(currentHeroSlide+1)%heroSlides.length;
 heroSlides[currentHeroSlide].classList.add('active');
 },5000);
 
-// GALLERY FILTERS
 const galleryItems=Array.from(document.querySelectorAll('.gallery-item'));
 const filterBtns=document.querySelectorAll('.filter-btn');
 filterBtns.forEach(btn=>{
@@ -283,7 +279,6 @@ setTimeout(()=>item.style.display='none',400);
 });
 });
 
-// LIGHTBOX
 const lightbox=document.getElementById('lightbox');
 const lightboxImg=document.getElementById('lightboxImg');
 const lightboxCaption=document.getElementById('lightboxCaption');
